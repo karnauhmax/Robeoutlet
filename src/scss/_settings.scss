@@ -2,7 +2,6 @@ html {
   box-sizing: border-box;
 }
 
-
 *,
 *::before,
 *::after {
@@ -36,17 +35,17 @@ li {
 
 .page {
   height: 100%;
-  font-family: var(--font-family, sans-serif);
   -webkit-text-size-adjust: 100%;
 }
 
 .page__body {
-  padding: 0;
   margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100%;
+  font-family: var(--font-family, Arial, Helvetica, sans-serif);
   font-size: 16px;
-  font-family: var(--font-family, sans-serif);
+  background-color: var(--lightgrey);
 }
 
 img {
@@ -62,9 +61,9 @@ a {
 
 .site-container {
   height: 100%;
-  overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
   display: grid;
   grid-template-columns: 100%;
+  overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
   grid-template-rows: 1fr auto; // change to auto 1fr auto if header is not absolute
 }
 
@@ -100,7 +99,7 @@ a {
 
 .container {
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: var(--container-width);
   padding: 0 20px;
 }
 
@@ -139,11 +138,9 @@ a {
   object-fit: cover;
 }
 
-
 .global-wrapper {
   position: relative;
 }
-
 
 .locked {
   overflow: hidden;
