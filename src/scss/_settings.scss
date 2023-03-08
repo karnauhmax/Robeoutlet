@@ -45,6 +45,7 @@ li {
   height: 100%;
   font-family: var(--font-family, Arial, Helvetica, sans-serif);
   font-size: rem(16);
+  line-height: 1.2;
   background-color: var(--lightgrey);
   @include adaptiveValue(padding-top, 79, 58, 1920, 1200, 1);
 
@@ -164,4 +165,8 @@ a {
 
 .hide {
   display: none;
+}
+
+section:not(:last-child) {
+  @include adaptiveValue(margin-bottom, 100, 40, 1920, 360, 1);
 }
