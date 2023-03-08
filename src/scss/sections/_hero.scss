@@ -1,10 +1,9 @@
 .hero {
   padding-top: rem(30);
   &__title {
-    @include adaptiveValue(font-size, 120, 43, 1920, 360, 1);
+    @include adaptiveValue(font-size, 120, 30, 1920, 360, 1);
     text-transform: uppercase;
     font-weight: 500;
-    line-height: 123.333333%; /* 74/60 */
     @include adaptiveValue(margin-bottom, 30, 15, 1920, 360, 1);
     color: var(--primary);
     word-break: break-word;
