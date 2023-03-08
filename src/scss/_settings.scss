@@ -42,10 +42,23 @@ li {
   margin: 0;
   padding: 0;
   min-width: 320px;
-  min-height: 100%;
+  height: 100%;
   font-family: var(--font-family, Arial, Helvetica, sans-serif);
-  font-size: 16px;
+  font-size: rem(16);
   background-color: var(--lightgrey);
+  @include adaptiveValue(padding-top, 79, 58, 1920, 1200, 1);
+
+  @include _1200 {
+    @include adaptiveValue(padding-top, 92, 79, 1200, 768, 1);
+  }
+
+  @include _768 {
+    padding-top: rem(50);
+  }
+
+  @include _576 {
+    padding-top: rem(44);
+  }
 }
 
 img {
@@ -63,7 +76,6 @@ a {
   height: 100%;
   display: grid;
   grid-template-columns: 100%;
-  overflow: hidden; // если используете на сайте position: sticky - уберите эту настройку
   grid-template-rows: 1fr auto; // change to auto 1fr auto if header is not absolute
 }
 
@@ -148,4 +160,8 @@ a {
 
 .second_div {
   @include adaptiveValue(font-size, 48, 12, 1920, 1366, 1);
+}
+
+.hide {
+  display: none;
 }
