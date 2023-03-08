@@ -2,10 +2,11 @@
 @import "vars";
 @import "mixins";
 @import "fonts";
-@import "settings";
 @import "vendor";
-
+@import "settings";
 
 // подключения компонентов страницы
 @import "./components/header";
 
+// подключения секций страницы
+@import "./sections/hero";

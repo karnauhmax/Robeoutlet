@@ -5,10 +5,26 @@
   <body class="page__body">
     <div class="site-container">
       @include('partials/header.html')
-      <main class="main">asdasdasd</main>
+      <main class="main">
+        <section class="hero">
+          <div class="container">
+            <h1 class="hero__title">Design your own wardrobe</h1>
+            <img
+              loading="lazy"
+              src="img/content/hero.jpg"
+              class="hero__img"
+              width="1400"
+              height="600"
+              alt="Wardrobe"
+            />
+          </div>
+          <div class="hero__warranty">
+            <h2 class="hero__warranty-title">5 years warranty</h2>
+          </div>
+        </section>
+      </main>
 
       @include('partials/footer.html')
     </div>
-    <link rel="stylesheet" href="css/vendor.css" />
   </body>
 </html>
