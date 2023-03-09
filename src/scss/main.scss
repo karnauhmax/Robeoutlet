@@ -1,12 +1,17 @@
 // базовые подключения
-@import "vars";
-@import "mixins";
-@import "fonts";
-@import "vendor";
-@import "settings";
+@import 'vars';
+@import 'mixins';
+@import 'fonts';
+@import 'vendor';
+@import 'settings';
 
 // подключения компонентов страницы
-@import "./components/header";
+@import './components/header';
 
 // подключения секций страницы
-@import "./sections/hero";
+@import './sections/hero';
+@import './sections/partners';
+
+.swiper-slide {
+  width: auto;
+}
