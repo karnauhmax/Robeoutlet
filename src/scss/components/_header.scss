@@ -175,6 +175,9 @@
     position: relative;
     max-width: rem(250);
     text-align: center;
+    @include _768 {
+      text-align: left;
+    }
   }
 }
 

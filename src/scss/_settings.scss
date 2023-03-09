@@ -170,3 +170,10 @@ a {
 section:not(:last-child) {
   @include adaptiveValue(margin-bottom, 100, 40, 1920, 360, 1);
 }
+
+.section-title {
+  @include adaptiveValue(font-size, 35, 24, 1920, 360, 1);
+  color: var(--primary);
+  font-weight: 500;
+  text-transform: uppercase;
+}

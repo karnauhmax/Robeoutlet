@@ -1,0 +1,16 @@
+.partners {
+  &__inner {
+    padding-left: max(calc((100% - 1400px) / 2), rem(20));
+    @include _576 {
+      padding-right: rem(20);
+    }
+  }
+
+  &__title {
+    @include adaptiveValue(margin-bottom, 20, 10, 1920, 360, 1);
+  }
+
+  &__slider .swiper-wrapper {
+    align-items: center;
+  }
+}
