@@ -18,7 +18,7 @@ if (document.querySelector('.partners__slider')) {
 
       1600: {
         slidesPerView: 'auto',
-        spaceBetween: 67
+        spaceBetween: 30
       }
     }
   });

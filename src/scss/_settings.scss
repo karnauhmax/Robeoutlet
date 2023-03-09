@@ -48,6 +48,7 @@ li {
   line-height: 1.2;
   background-color: var(--lightgrey);
   @include adaptiveValue(padding-top, 79, 58, 1920, 1200, 1);
+  color: var(--primary);
 
   @include _1200 {
     @include adaptiveValue(padding-top, 92, 79, 1200, 768, 1);
@@ -173,7 +174,38 @@ section:not(:last-child) {
 
 .section-title {
   @include adaptiveValue(font-size, 35, 24, 1920, 360, 1);
-  color: var(--primary);
   font-weight: 500;
   text-transform: uppercase;
+}
+
+.arrow-link {
+  background-color: var(--primary);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: rem(10) rem(30) rem(10) rem(10);
+  text-transform: uppercase;
+  color: var(--lightgrey);
+  font-weight: 500;
+  position: relative;
+  min-width: min(rem(190), 100%);
+  text-align: center;
+  min-height: rem(45);
+  border-radius: 2px;
+  transition: 0.2s box-shadow ease;
+
+  &::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    right: rem(3);
+    top: rem(4);
+    background-repeat: no-repeat;
+    background-image: url('../img/svg/arrow-white.svg');
+    position: absolute;
+  }
+
+  &:hover {
+    box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+  }
 }
