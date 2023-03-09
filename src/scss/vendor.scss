@@ -1,3 +1,7 @@
-@import "./vendor/normalize";
-@import "https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.3/dist/css/splide.min.css";
-@import "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css";
+@import './vendor/normalize';
+@import 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.3/dist/css/splide.min.css';
+@import 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css';
+
+.swiper-slide {
+  width: auto;
+}
