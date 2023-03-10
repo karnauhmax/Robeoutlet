@@ -1,0 +1,10 @@
+.reviews {
+  &__title {
+    @include adaptiveValue(margin-bottom, 60, 20, 1920, 360, 1);
+  }
+
+  &__inner {
+    display: grid;
+    justify-items: center;
+  }
+}

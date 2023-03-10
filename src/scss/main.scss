@@ -1,11 +1,18 @@
 // базовые подключения
-@import "vars";
-@import "mixins";
-@import "fonts";
-@import "settings";
-@import "vendor";
-
+@import 'vars';
+@import 'mixins';
+@import 'fonts';
+@import 'vendor';
+@import 'settings';
 
 // подключения компонентов страницы
-@import "./components/header";
+@import './components/header';
+@import './components/advantages';
+@import './components/contact';
+@import './components/reviews';
 
+// подключения секций страницы
+@import './sections/hero';
+@import './sections/partners';
+@import './sections/preview';
+@import './sections/photos';
