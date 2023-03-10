@@ -173,7 +173,7 @@ section:not(:last-child) {
 }
 
 .section-title {
-  @include adaptiveValue(font-size, 35, 24, 1920, 360, 1);
+  @include adaptiveValue(font-size, 45, 24, 1920, 360, 1);
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -207,5 +207,64 @@ section:not(:last-child) {
 
   &:hover {
     box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.tabs__content {
+  display: none;
+  &-active {
+    display: block;
+  }
+}
+
+.bold-on-hover {
+  &::after {
+    content: attr(data-content);
+    display: block;
+    overflow: hidden;
+    height: 0;
+    font-weight: 500;
+    font-size: rem(16);
+    visibility: hidden;
+  }
+
+  &::before {
+    content: attr(data-uppercase);
+    display: block;
+    overflow: hidden;
+    height: 0;
+    font-weight: 500;
+    font-size: rem(16);
+    visibility: hidden;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
+
+button.tabs__btn-active {
+  font-weight: 500;
+  &::after {
+    content: attr(data-content);
+    display: block;
+    overflow: hidden;
+    height: 0;
+    font-weight: 500;
+    font-size: rem(16);
+    visibility: hidden;
+  }
+
+  &::before {
+    content: attr(data-uppercase);
+    display: block;
+    overflow: hidden;
+    height: 0;
+    font-weight: 500;
+    font-size: rem(16);
+    visibility: hidden;
+    text-transform: uppercase;
   }
 }
