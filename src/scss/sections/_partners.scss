@@ -7,6 +7,7 @@
   }
 
   &__title {
+    @include adaptiveValue(font-size, 35, 24, 1920, 360, 1);
     @include adaptiveValue(margin-bottom, 20, 10, 1920, 360, 1);
   }
 
