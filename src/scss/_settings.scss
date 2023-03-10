@@ -179,13 +179,11 @@ section:not(:last-child) {
 }
 
 .arrow-link {
-  background-color: var(--primary);
   display: inline-flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  padding: rem(10) rem(30) rem(10) rem(10);
+  padding: rem(10) rem(20) rem(10) rem(10);
   text-transform: uppercase;
-  color: var(--lightgrey);
   font-weight: 500;
   position: relative;
   min-width: min(rem(190), 100%);
@@ -201,12 +199,33 @@ section:not(:last-child) {
     right: rem(3);
     top: rem(4);
     background-repeat: no-repeat;
-    background-image: url('../img/svg/arrow-white.svg');
     position: absolute;
+  }
+}
+
+.dark-arrow-link {
+  color: var(--lightgrey);
+  background-color: var(--primary);
+
+  &::after {
+    background-image: url('../img/svg/arrow-white.svg');
   }
 
   &:hover {
     box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.white-arrow-link {
+  background-color: var(--lightgrey);
+  color: var(--primary);
+
+  &::after {
+    background-image: url('../img/svg/arrow.svg');
+  }
+
+  &:hover {
+    box-shadow: 5px 7px 4px rgba(242, 242, 242, 0.2);
   }
 }
 
