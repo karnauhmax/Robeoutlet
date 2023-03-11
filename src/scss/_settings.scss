@@ -36,6 +36,8 @@ li {
 .page {
   height: 100%;
   -webkit-text-size-adjust: 100%;
+  @include scrollbar(#cfcfcf, var(--primary), 12px, vertical, 0, #747373);
+  @include scrollbarSettingsForFirefox(#cfcfcf, var(--primary));
 }
 
 .page__body {
