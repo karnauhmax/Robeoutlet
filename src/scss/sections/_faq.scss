@@ -1,0 +1,56 @@
+.faq {
+  &__inner {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    @include adaptiveValue(column-gap, 132, 30, 1920, 992, 1);
+    @include _992 {
+      grid-template-columns: 1fr;
+      @include adaptiveValue(row-gap, 35, 20, 991, 360, 1);
+    }
+  }
+
+  &__title {
+    font-size: rem(45);
+  }
+
+  &__questions {
+  }
+
+  &__item {
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--primary);
+      .faq__item-head {
+      }
+    }
+
+    &:not(:first-child) {
+      .faq__item-head {
+        padding-top: rem(15);
+      }
+    }
+  }
+
+  &__item-head {
+    display: grid;
+    grid-template-columns: 1fr 16px;
+    gap: rem(10);
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: rem(15);
+  }
+
+  &__item-title {
+    font-weight: 500;
+    @include adaptiveValue(font-size, 18, 14, 1920, 360, 1);
+  }
+
+  &__item-content {
+    padding: 0 0 rem(30) 0;
+  }
+
+  &__item-descr {
+    max-width: rem(742);
+    font-weight: 300;
+    @include adaptiveValue(font-size, 18, 14, 1920, 360, 1);
+  }
+}
