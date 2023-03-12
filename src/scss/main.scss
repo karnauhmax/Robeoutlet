@@ -8,10 +8,12 @@
 // подключения компонентов страницы
 @import './components/header';
 @import './components/footer';
-@import './components/advantages';
+@import './components/list-section';
 @import './components/contact';
 @import './components/reviews';
 @import './components/photos';
+@import './components/features';
+@import './components/advantages';
 
 // подключения секций страницы
 @import './sections/hero';

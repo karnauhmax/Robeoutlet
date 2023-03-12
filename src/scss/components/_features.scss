@@ -1,0 +1,34 @@
+.features {
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(rem(200), 1fr));
+    @include adaptiveValue(column-gap, 45, 20, 1920, 768, 1);
+    @include adaptiveValue(row-gap, 60, 50, 1920, 768, 1);
+
+    @include _768 {
+      grid-template-columns: repeat(auto-fill, minmax(rem(155), 1fr));
+    }
+
+    @include _576 {
+    }
+
+    @include _360 {
+      justify-items: start;
+    }
+  }
+
+  &__item {
+    @include _360 {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      align-items: center;
+      column-gap: rem(15);
+    }
+  }
+
+  &__img {
+    @include _360 {
+      align-self: start;
+    }
+  }
+}
