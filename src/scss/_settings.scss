@@ -33,6 +33,10 @@ li {
   padding: 0;
 }
 
+.main {
+  @include adaptiveValue(margin-bottom, 95, 25, 1920, 360, 1);
+}
+
 .page {
   height: 100%;
   -webkit-text-size-adjust: 100%;
