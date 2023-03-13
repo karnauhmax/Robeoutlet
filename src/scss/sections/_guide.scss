@@ -25,6 +25,7 @@
   &__btns {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     @include adaptiveValue(column-gap, 70, 40, 1920, 360, 1);
 
     @include _576 {
@@ -79,7 +80,7 @@
 
   &__videos-video {
     width: 100%;
-    margin-bottom: rem(30);
+    margin-bottom: var(--gap-primary);
     height: 400px;
     background-color: grey;
 
@@ -103,11 +104,6 @@
     @include adaptiveValue(font-size, 24, 16, 1920, 360, 1);
   }
 
-  &__videos-descr {
-    font-weight: 300;
-    @include adaptiveValue(font-size, 18, 14, 1920, 360, 1);
-  }
-
   &__videos-btn {
     position: absolute;
     width: 60px;
@@ -127,8 +123,6 @@
     display: grid;
     row-gap: rem(20);
     p {
-      font-weight: 300;
-      @include adaptiveValue(font-size, 18, 14, 1920, 360, 1);
       line-height: 1.5;
     }
   }

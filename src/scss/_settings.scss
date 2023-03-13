@@ -295,3 +295,19 @@ button.tabs__btn-active {
     height: 15px;
   }
 }
+
+.text {
+  @include adaptiveValue(font-size, 18, 14, 1920, 360, 1);
+}
+
+.text-300 {
+  font-weight: 300;
+}
+
+.text-500 {
+  font-weight: 500;
+}
+
+strong {
+  font-weight: 500;
+}

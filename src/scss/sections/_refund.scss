@@ -3,18 +3,12 @@
 
   &__inner {
     display: grid;
-    row-gap: rem(30);
+    row-gap: var(--gap-primary);
   }
 
   p {
     max-width: rem(1232);
-    font-weight: 300;
     line-height: 1.5;
-    @include adaptiveValue(font-size, 18, 14, 1920, 360, 1);
-  }
-
-  strong {
-    font-weight: 500;
   }
 
   &__descr {
