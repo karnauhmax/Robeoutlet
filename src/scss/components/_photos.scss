@@ -57,6 +57,10 @@
     @include _992 {
       padding-top: 0;
     }
+
+    @include _768 {
+      row-gap: 0;
+    }
   }
 
   &__info-body {
