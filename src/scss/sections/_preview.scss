@@ -50,8 +50,6 @@
   }
 
   &__info {
-    display: grid;
-    grid-auto-rows: min-content;
     @include adaptiveValue(row-gap, 20, 10, 1920, 768, 1);
     grid-column: 1/5;
     text-align: left;
@@ -142,9 +140,7 @@
     &-info {
       text-transform: uppercase;
       font-weight: 500;
-      display: grid;
       row-gap: rem(5);
-      grid-auto-rows: min-content;
 
       @include _768 {
         grid-column: span 2;

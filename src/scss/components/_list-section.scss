@@ -45,8 +45,6 @@
   }
 
   &__item {
-    display: grid;
-    grid-auto-rows: min-content;
     row-gap: rem(20);
     @include _768 {
       row-gap: rem(10);

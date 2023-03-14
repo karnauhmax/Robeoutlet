@@ -60,8 +60,8 @@ li {
     @include adaptiveValue(padding-top, 92, 79, 1200, 768, 1);
   }
 
-  @include _768 {
-    padding-top: rem(50);
+  @include _992 {
+    padding-top: rem(58);
   }
 
   @include _576 {
@@ -310,4 +310,16 @@ button.tabs__btn-active {
 
 strong {
   font-weight: 500;
+}
+
+.section-subtitle {
+  @include adaptiveValue(font-size, 24, 20, 1920, 360, 1);
+  text-transform: uppercase;
+  color: var(--primary);
+  line-height: 1.5; /* 36/24 */
+}
+
+.grid-flow {
+  display: grid;
+  grid-auto-rows: min-content;
 }
