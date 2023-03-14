@@ -49,9 +49,7 @@
 
   &__info {
     width: 100%;
-    display: grid;
     grid-template-rows: min-content 1fr;
-    grid-auto-rows: min-content;
     row-gap: rem(20);
     @include adaptiveValue(padding-top, 40, 20, 1920, 992, 1);
     @include _992 {
@@ -64,10 +62,8 @@
   }
 
   &__info-body {
-    display: grid;
     row-gap: rem(20);
     justify-items: start;
-    grid-auto-rows: min-content;
     @include _992 {
       grid-template-columns: repeat(2, 1fr);
       @include adaptiveValue(column-gap, 40, 20, 991, 576, 1);
@@ -106,8 +102,6 @@
   }
 
   &__accordeon-item {
-    display: grid;
-    grid-auto-rows: min-content;
     row-gap: rem(10);
 
     &.active .photos__btn {

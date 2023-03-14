@@ -161,9 +161,7 @@
   }
 
   &__payment-inner {
-    display: grid;
     row-gap: rem(10);
-    grid-auto-rows: min-content;
     @include _992 {
       align-items: center;
       grid-template-columns: repeat(3, max-content);
