@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 25px minmax(rem(70), max-content);
-    column-gap: rem(30);
+    column-gap: var(--gap-primary);
     @include adaptiveValue(row-gap, 50, 30, 1920, 992, 1);
     @include adaptiveValue(margin-bottom, 40, 20, 1920, 360, 1);
 
@@ -177,7 +177,7 @@
   }
 
   &__credits {
-    padding-top: rem(30);
+    padding-top: var(--gap-primary);
     border-top: 1px solid #8b8989;
     font-weight: 300;
     font-size: rem(14);

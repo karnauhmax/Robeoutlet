@@ -23,3 +23,45 @@ if (document.querySelector('.partners__slider')) {
     }
   });
 }
+
+if (document.querySelector('.guide')) {
+  const videoSlider = new Swiper('.guide__videos', {
+    modules: [Navigation],
+    slidesPerView: 2,
+    observer: true,
+    observeParents: true,
+    navigation: {
+      nextEl: '.guide-slider__next',
+      prevEl: '.guide-slider__prev'
+    },
+
+    breakpoints: {
+      320: {
+        spaceBetween: 20,
+        slidesPerView: 1.2
+      },
+
+      768: {
+        spaceBetween: 30,
+        slidesPerView: 2
+      }
+    }
+  });
+
+  const brochureSlider = new Swiper('.guide__brochures', {
+    modules: [Navigation],
+    slidesPerView: 1,
+    observer: true,
+    observeParents: true,
+    navigation: {
+      nextEl: '.guide-slider__next',
+      prevEl: '.guide-slider__prev'
+    },
+
+    on: {
+      observerUpdate: function () {
+        console.log(1);
+      }
+    }
+  });
+}

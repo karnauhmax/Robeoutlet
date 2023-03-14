@@ -13,14 +13,14 @@
                 Return and Refund policy
               </h1>
               <div class="refund__descr">
-                <p>
+                <p class="text text-300">
                   The return policy for all products on the site, complies with
                   the Australia consumer protection Act. If you return goods due
                   to a manufacturing fault, please take a photo or make a video
                   of the damage and send us via email.
                 </p>
 
-                <p>
+                <p class="text text-300">
                   We will process your inquiry in the shortest possible time and
                   contact you to clarify the warranty terms. You can request a
                   refund or exchange if an item has a major problem. Otherwise
@@ -29,12 +29,12 @@
               </div>
               <div class="refund__note">
                 <div class="refund__note-descr">
-                  <p>
+                  <p class="text text-300">
                     <strong> Please note:</strong> goods damaged during
                     installation by the third party masters or a buyer, are not
                     subject to exchange or return!
                   </p>
-                  <p>
+                  <p class="text text-300">
                     If the product you purchased from us does not meet your
                     expectations or does not work properly, be sure to contact
                     us via email first
@@ -43,7 +43,7 @@
               </div>
               <div class="refund__note">
                 <div class="refund__note-descr">
-                  <p>
+                  <p class="text text-300">
                     <strong>Please note:</strong> We do not refund goods for
                     those who are seeking a return due to a change of mind or if
                     ordered providing the incorrect sizes, so be sure to choose
@@ -55,30 +55,8 @@
             </div>
           </div>
         </section>
-        <section class="contact">
-          <div class="container">
-            <div class="contact__inner">
-              <div class="contact__img ibg">
-                <img
-                  loading="lazy"
-                  src="img/content/framed-silver-doors.jpg"
-                  class="image"
-                  width="640"
-                  height="570"
-                  alt=""
-                />
-              </div>
-              <div class="contact__info">
-                <h2 class="contact__title">
-                  Need a free <span>consultation?</span>
-                </h2>
-                <a href="#" class="arrow-link contact__link white-arrow-link"
-                  >Yes</a
-                >
-              </div>
-            </div>
-          </div>
-        </section>
+
+        @include ('partials/contact.html')
       </main>
       @include('partials/footer.html')
     </div>

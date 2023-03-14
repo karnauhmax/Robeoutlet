@@ -67,8 +67,6 @@
   }
 
   &__descr {
-    @include adaptiveValue(font-size, 18, 14, 1920, 360, 1);
-    font-weight: 300;
     @include line-clamp(4);
   }
 
