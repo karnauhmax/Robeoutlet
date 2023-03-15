@@ -97,6 +97,7 @@ a {
   border: none;
   border-radius: 0;
   background-color: transparent;
+  padding: 0;
 
   &::-webkit-search-decoration,
   &::-webkit-search-cancel-button,
@@ -310,6 +311,10 @@ button.tabs__btn-active {
 
 strong {
   font-weight: 500;
+}
+
+textarea {
+  resize: none;
 }
 
 .section-subtitle {
