@@ -99,7 +99,7 @@
     font-weight: 300;
   }
 
-  &-list__contact-preview {
+  &-list__contact {
     grid-column: 4/7;
     @include _992 {
       grid-column: unset;
