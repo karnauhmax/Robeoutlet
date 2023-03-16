@@ -7,6 +7,14 @@
     @include adaptiveValue(margin-bottom, 30, 15, 1920, 360, 1);
     color: var(--primary);
     word-break: break-word;
+
+    span {
+      @include adaptiveValue(padding-left, 100, 42, 1920, 576, 1);
+
+      @include _576 {
+        padding-left: 0;
+      }
+    }
   }
 
   &__img {
