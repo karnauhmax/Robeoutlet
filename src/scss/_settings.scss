@@ -175,8 +175,8 @@ a {
   display: none;
 }
 
-section:not(:last-child) {
-  @include adaptiveValue(margin-bottom, 100, 40, 1920, 360, 1);
+section:not(:last-of-type()) {
+  @include adaptiveValue(padding-bottom, 100, 40, 1920, 360, 1);
 }
 
 .section-title {
