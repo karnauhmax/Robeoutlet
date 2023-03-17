@@ -1,7 +1,6 @@
 .contact {
   font-weight: 300;
   @include adaptiveValue(font-size, 18, 16, 1920, 360, 1);
-  @include adaptiveValue(padding-top, 50, 30, 1920, 360, 1);
   &__title {
     @include adaptiveValue(margin-bottom, 66, 30, 1920, 360, 1);
   }

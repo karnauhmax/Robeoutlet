@@ -5,8 +5,6 @@
   }
 
   &__item {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
     align-items: center;
     @include adaptiveValue(gap, 54, 15, 1920, 768, 1);
 

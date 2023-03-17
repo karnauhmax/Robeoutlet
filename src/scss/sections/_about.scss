@@ -1,6 +1,4 @@
 .about {
-  @include adaptiveValue(padding-top, 50, 30, 1920, 360, 1);
-
   p {
     line-height: 1.5;
   }

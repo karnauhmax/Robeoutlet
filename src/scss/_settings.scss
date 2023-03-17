@@ -175,8 +175,33 @@ a {
   display: none;
 }
 
+.section-padding-top {
+  @include adaptiveValue(padding-top, 50, 30, 1920, 360, 1);
+}
+
+.title-margin-bottom {
+  @include adaptiveValue(margin-bottom, 60, 20, 1920, 360, 1);
+}
+
 section:not(:last-of-type) {
   @include adaptiveValue(padding-bottom, 100, 40, 1920, 360, 1);
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.uppercase-bold {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.white-block {
+  background-color: var(--white);
 }
 
 .section-title {
