@@ -176,26 +176,22 @@
       line-height: 145.833333%; /* 35/24 */
     }
   }
-}
 
-.item-with-number {
-  position: relative;
-  @include adaptiveValue(padding-top, 140, 90, 1920, 992, 1);
-  &::before {
-    content: counter(counter, decimal-leading-zero) '.';
-    counter-increment: counter;
-    position: absolute;
-    @include adaptiveValue(font-size, 45, 28, 1920, 360, 1);
-    font-weight: 500;
-    color: var(--secondary);
-    @include adaptiveValue(top, 64, 40, 1920, 992, 1);
+  .item-with-number {
+    position: relative;
+    @include adaptiveValue(padding-top, 140, 90, 1920, 992, 1);
+    &::before {
+      content: counter(counter, decimal-leading-zero '.');
+
+      color: var(--secondary);
+      @include adaptiveValue(top, 64, 40, 1920, 992, 1);
+      @include _768 {
+        top: rem(20);
+      }
+    }
 
     @include _768 {
-      top: rem(20);
+      padding-top: rem(70);
     }
-  }
-
-  @include _768 {
-    padding-top: rem(70);
   }
 }

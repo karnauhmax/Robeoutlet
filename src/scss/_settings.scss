@@ -200,6 +200,17 @@ section:not(:last-of-type) {
   text-transform: uppercase;
 }
 
+.item-with-number {
+  position: relative;
+  &::before {
+    content: counter(counter, decimal-leading-zero);
+    counter-increment: counter;
+    position: absolute;
+    @include adaptiveValue(font-size, 45, 28, 1920, 360, 1);
+    font-weight: 500;
+  }
+}
+
 .white-block {
   background-color: var(--white);
 }
