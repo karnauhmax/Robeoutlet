@@ -175,8 +175,62 @@ a {
   display: none;
 }
 
+.section-padding-top {
+  @include adaptiveValue(padding-top, 50, 30, 1920, 360, 1);
+}
+
+.title-margin-bottom {
+  @include adaptiveValue(margin-bottom, 60, 20, 1920, 360, 1);
+}
+
 section:not(:last-of-type) {
   @include adaptiveValue(padding-bottom, 100, 40, 1920, 360, 1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.uppercase-bold {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.item-with-number {
+  position: relative;
+  &::before {
+    content: counter(counter, decimal-leading-zero);
+    counter-increment: counter;
+    position: absolute;
+    @include adaptiveValue(font-size, 45, 28, 1920, 360, 1);
+    font-weight: 500;
+  }
+}
+
+.textarea-label {
+  grid-column: span 2;
+  height: rem(27);
+  @include _576 {
+    grid-column: span 1;
+  }
+}
+
+.white-block {
+  background-color: var(--white);
 }
 
 .section-title {

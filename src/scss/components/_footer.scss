@@ -5,8 +5,6 @@
   color: var(--secondary);
 
   &__inner {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 25px minmax(rem(70), max-content);
     column-gap: var(--gap-primary);
     @include adaptiveValue(row-gap, 50, 30, 1920, 992, 1);

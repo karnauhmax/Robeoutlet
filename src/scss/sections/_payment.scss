@@ -1,5 +1,4 @@
 .payment {
-  @include adaptiveValue(padding-top, 50, 30, 1920, 360, 1);
   &__inner {
     display: grid;
     @include adaptiveValue(row-gap, 30, 20, 1920, 360, 1);
