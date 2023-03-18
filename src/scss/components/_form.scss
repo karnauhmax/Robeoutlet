@@ -1,5 +1,7 @@
 .form {
-  background-color: var(--white);
+  &__body {
+    background-color: var(--white);
+  }
   &__input {
     position: relative;
     border-bottom: 1px solid var(--primary);

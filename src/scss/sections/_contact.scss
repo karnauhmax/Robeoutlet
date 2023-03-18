@@ -9,7 +9,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr minmax(auto, 313px);
     @include adaptiveValue(gap, 30, 20, 1920, 1200, 1);
-    // align-items: start;
 
     @include _1200 {
       grid-template-columns: repeat(2, 1fr);
@@ -71,7 +70,7 @@
     align-self: end;
   }
 
-  &__form {
+  &__form-body {
     padding: rem(23) rem(20);
     grid-template-columns: repeat(2, 1fr);
     gap: rem(20);
@@ -93,12 +92,8 @@
     }
   }
 
-  .textarea-label {
-    grid-column: span 2;
-    height: rem(27);
-    @include _576 {
-      grid-column: span 1;
-    }
+  &__form-inner {
+    gap: rem(30);
   }
 
   &__form-textarea {

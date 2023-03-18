@@ -187,6 +187,16 @@ section:not(:last-of-type) {
   @include adaptiveValue(padding-bottom, 100, 40, 1920, 360, 1);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 .grid {
   display: grid;
 }
@@ -208,6 +218,14 @@ section:not(:last-of-type) {
     position: absolute;
     @include adaptiveValue(font-size, 45, 28, 1920, 360, 1);
     font-weight: 500;
+  }
+}
+
+.textarea-label {
+  grid-column: span 2;
+  height: rem(27);
+  @include _576 {
+    grid-column: span 1;
   }
 }
 
