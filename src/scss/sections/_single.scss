@@ -1,0 +1,247 @@
+.single-head {
+  @include adaptiveValue(padding-top, 70, 30, 1920, 360, 1);
+}
+
+.single {
+
+}
+
+.process{
+
+  &__title {
+    @include adaptiveValue(margin-bottom, 50, 20, 1920, 360, 1);
+  }
+
+  &__inner {
+    @include adaptiveValue(row-gap, 30, 20, 1920, 360, 1);
+  }
+
+  &__steps-desktop {
+    display: flex;
+    @include adaptiveValue(gap, 30, 10, 1920, 992, 1);
+
+    @include _768 {
+      display: none;
+    }
+  }
+
+  &__step {
+    @include adaptiveValue(row-gap, 30, 20, 1920, 360, 1);
+    grid-template-columns: 1fr rem(254);
+    @include adaptiveValue(column-gap, 146, 10, 1920, 992, 1);
+    &.without-selected {
+      grid-template-columns: 1fr;
+      @include adaptiveValue(column-gap, 25, 15, 1920, 992, 1);
+
+      .process__step-title {
+        grid-column: unset;
+      }
+
+      .process__items {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+
+      @include _768{
+        .process__items {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @include _576 {
+        .process__items {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+
+    @include _768 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__step-final {
+    @include adaptiveValue(gap, 48, 20, 1920, 360, 1);
+
+    .process__selected {
+      @include _992 {
+        display: grid;
+      }
+    }
+
+    .process__step-title {
+      @include _992 {
+        grid-column: span 1;
+      }
+    }
+
+    @include _992 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__step-title {
+    grid-column: span 2;
+
+    @include _576 {
+      grid-column: unset;
+    }
+  }
+
+  &__step-btn {
+    background-color: var(--white);
+    font-weight: 300;
+    padding: rem(10);
+    @include adaptiveValue(font-size, 24, 18, 1920, 360, 1);
+    flex: 0 1 rem(256);
+    min-width: unset;
+
+    &.active {
+      background-color: var(--primary);
+      font-weight: 500;
+      color: var(--white);
+    }
+  }
+
+  &__item {
+    row-gap: rem(20);
+    @include adaptiveValue(font-size, 24, 18, 1920, 360, 1);
+    cursor: pointer;
+  }
+
+  &__item[data-item-type="preview"] {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20);
+    align-self: start;
+
+    .process__img {
+        padding-bottom: 64%;
+        align-self: start;
+        order: 1;
+    }
+    .process__color {
+        align-self: end;
+    }
+
+    .process__info {
+        grid-template-rows: auto 1fr;
+    }
+
+  }
+
+  .process__color {
+    width: rem(110);
+    height: rem(42);
+    background-color: grey;
+  }
+
+  &__items {
+    grid-template-columns: repeat(2, 1fr);
+    @include adaptiveValue(gap, 30, 10, 1920, 360, 1);
+
+    @include _992 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include _576 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__items[data-items="preview"] {
+    @include _992 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__img {
+    padding-bottom: 65%;
+    width: 100%;
+  }
+
+  &__selected {
+    align-self: start;
+    row-gap: rem(20);
+    padding-bottom: rem(25);
+    @include _768 {
+      display: none;
+    }
+  }
+
+  &__selected-head {
+    border-bottom: 1px solid var(--lightgrey);
+    padding: rem(20) rem(20) rem(10) rem(20);
+    font-weight: 500;
+    font-size: rem(18);
+  }
+
+  &__selected-body {
+    row-gap: rem(10);
+  }
+
+  &__selected-item {
+    padding: 0 rem(20);
+    grid-template-columns: 45px 1fr;
+    gap: rem(10);
+    align-items: center;
+  }
+
+  &__selected-img {
+    padding-bottom: 67%;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  &__finale {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(20);
+
+
+    @include _768 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__finale-body {
+    grid-template-rows: repeat(2, min-content) auto auto;
+    @include adaptiveValue(row-gap, 30, 15, 1920, 360, 1);
+    padding-top: rem(20);
+
+    @include _768 {
+      padding-top: 0;
+    }
+  }
+
+  &__finale-title {
+    @include adaptiveValue(font-size, 24, 18, 1920, 360, 1);
+  }
+
+  &__finale-img {
+    padding-bottom: 67.5%;
+    align-self: start;
+  }
+
+  &__finale-inputs {
+    grid-template-columns: repeat(auto-fill, minmax(rem(120), 1fr));
+    gap: rem(10);
+  }
+
+  &__finale-checkbox {
+    align-self: center;
+  }
+
+  &__finale-label {
+    row-gap: rem(10);
+  }
+
+  &__finale-total {
+    align-self: end;
+  }
+
+  &__finale-btn {
+    grid-column: span 2;
+    @include _992 {
+      grid-column: span 1;
+    }
+  }
+}
