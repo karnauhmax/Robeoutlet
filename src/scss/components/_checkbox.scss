@@ -2,6 +2,7 @@
   position: relative;
   cursor: pointer;
   padding-left: rem(35);
+
   input {
     appearance: none;
     position: absolute;
@@ -9,6 +10,10 @@
     &:checked + .checkbox {
       background-image: url('../img/svg/custom-checkbox-checked.svg');
     }
+  }
+
+  span {
+    @include adaptiveValue(margin-bottom, 15, 10, 1920, 360, 1);
   }
 }
 

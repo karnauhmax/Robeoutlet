@@ -2554,6 +2554,18 @@ textarea {
 .checkbox-label input:checked + .checkbox {
   background-image: url("../img/svg/custom-checkbox-checked.svg");
 }
+@supports (margin-bottom: clamp( 0.625rem , 0.5528846154rem  +  0.3205128205vw , 0.9375rem )) {
+  .checkbox-label span {
+    margin-bottom: clamp( 0.625rem , 0.5528846154rem  +  0.3205128205vw , 0.9375rem );
+  }
+}
+@supports not (margin-bottom: clamp( 0.625rem , 0.5528846154rem  +  0.3205128205vw , 0.9375rem )) {
+  .checkbox-label span {
+    margin-bottom: calc(
+      0.625rem + 0.3125 * (100vw - 22.5rem) / 97.5
+    );
+  }
+}
 
 .checkbox {
   position: absolute;
@@ -4950,18 +4962,6 @@ textarea {
   }
 }
 
-@supports (margin-bottom: clamp( 1.25rem , 0.8173076923rem  +  1.9230769231vw , 3.125rem )) {
-  .process__title {
-    margin-bottom: clamp( 1.25rem , 0.8173076923rem  +  1.9230769231vw , 3.125rem );
-  }
-}
-@supports not (margin-bottom: clamp( 1.25rem , 0.8173076923rem  +  1.9230769231vw , 3.125rem )) {
-  .process__title {
-    margin-bottom: calc(
-      1.25rem + 1.875 * (100vw - 22.5rem) / 97.5
-    );
-  }
-}
 @supports (row-gap: clamp( 1.25rem , 1.1057692308rem  +  0.641025641vw , 1.875rem )) {
   .process__inner {
     row-gap: clamp( 1.25rem , 1.1057692308rem  +  0.641025641vw , 1.875rem );
@@ -4973,6 +4973,151 @@ textarea {
       1.25rem + 0.625 * (100vw - 22.5rem) / 97.5
     );
   }
+}
+.process__inner[data-stepper-type=constructor] .process__step {
+  background-color: var(--white);
+}
+@supports (padding-top: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    padding-top: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem );
+  }
+}
+@supports not (padding-top: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    padding-top: calc(
+      0.9375rem + 0.9375 * (100vw - 22.5rem) / 97.5
+    );
+  }
+}
+@supports (padding-bottom: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    padding-bottom: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem );
+  }
+}
+@supports not (padding-bottom: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    padding-bottom: calc(
+      0.9375rem + 0.9375 * (100vw - 22.5rem) / 97.5
+    );
+  }
+}
+@supports (padding-right: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    padding-right: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem );
+  }
+}
+@supports not (padding-right: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    padding-right: calc(
+      0.9375rem + 0.9375 * (100vw - 22.5rem) / 97.5
+    );
+  }
+}
+@supports (padding-left: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    padding-left: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem );
+  }
+}
+@supports not (padding-left: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    padding-left: calc(
+      0.9375rem + 0.9375 * (100vw - 22.5rem) / 97.5
+    );
+  }
+}
+.process__inner[data-stepper-type=constructor] .process__img {
+  width: 241px;
+  height: 504px;
+  outline: 1px solid red;
+  padding-bottom: 0;
+}
+.process__inner[data-stepper-type=constructor] .process__step {
+  -ms-grid-columns: auto 1fr;
+  grid-template-columns: auto 1fr;
+}
+@supports ((-moz-column-gap: clamp( 1.25rem , 0.3846153846rem  +  3.8461538462vw , 5rem )) or (column-gap: clamp( 1.25rem , 0.3846153846rem  +  3.8461538462vw , 5rem ))) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    -webkit-column-gap: clamp( 1.25rem , 0.3846153846rem  +  3.8461538462vw , 5rem );
+    -moz-column-gap: clamp( 1.25rem , 0.3846153846rem  +  3.8461538462vw , 5rem );
+    column-gap: clamp( 1.25rem , 0.3846153846rem  +  3.8461538462vw , 5rem );
+  }
+}
+@supports not ((-moz-column-gap: clamp( 1.25rem , 0.3846153846rem  +  3.8461538462vw , 5rem )) or (column-gap: clamp( 1.25rem , 0.3846153846rem  +  3.8461538462vw , 5rem ))) {
+  .process__inner[data-stepper-type=constructor] .process__step {
+    -webkit-column-gap: calc(
+      1.25rem + 3.75 * (100vw - 22.5rem) / 97.5
+    );
+    -moz-column-gap: calc(
+      1.25rem + 3.75 * (100vw - 22.5rem) / 97.5
+    );
+    column-gap: calc(
+      1.25rem + 3.75 * (100vw - 22.5rem) / 97.5
+    );
+  }
+}
+.process__inner[data-stepper-type=constructor] .process__info {
+  -ms-grid-rows: (auto)[3] 1fr;
+  grid-template-rows: repeat(3, auto) 1fr;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+}
+@supports (row-gap: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__info {
+    row-gap: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem );
+  }
+}
+@supports not (row-gap: clamp( 0.9375rem , 0.7211538462rem  +  0.9615384615vw , 1.875rem )) {
+  .process__inner[data-stepper-type=constructor] .process__info {
+    row-gap: calc(
+      0.9375rem + 0.9375 * (100vw - 22.5rem) / 97.5
+    );
+  }
+}
+.process__inner[data-stepper-type=constructor] .process__note {
+  -ms-flex-item-align: end;
+  -ms-grid-row-align: end;
+  align-self: end;
+}
+.process__inner[data-stepper-type=constructor] .process__step-title {
+  -ms-grid-column-span: 1;
+  grid-column: span 1;
+}
+.process__inner[data-stepper-type=constructor] .process__checkboxes {
+  -ms-grid-columns: (-webkit-max-content)[2];
+  -ms-grid-columns: (max-content)[2];
+  grid-template-columns: repeat(2, -webkit-max-content);
+  grid-template-columns: repeat(2, max-content);
+  row-gap: 0.625rem;
+}
+@supports ((-moz-column-gap: clamp( 0.9375rem , -0.0646551724rem  +  1.6163793103vw , 1.875rem )) or (column-gap: clamp( 0.9375rem , -0.0646551724rem  +  1.6163793103vw , 1.875rem ))) {
+  .process__inner[data-stepper-type=constructor] .process__checkboxes {
+    -webkit-column-gap: clamp( 0.9375rem , -0.0646551724rem  +  1.6163793103vw , 1.875rem );
+    -moz-column-gap: clamp( 0.9375rem , -0.0646551724rem  +  1.6163793103vw , 1.875rem );
+    column-gap: clamp( 0.9375rem , -0.0646551724rem  +  1.6163793103vw , 1.875rem );
+  }
+}
+@supports not ((-moz-column-gap: clamp( 0.9375rem , -0.0646551724rem  +  1.6163793103vw , 1.875rem )) or (column-gap: clamp( 0.9375rem , -0.0646551724rem  +  1.6163793103vw , 1.875rem ))) {
+  .process__inner[data-stepper-type=constructor] .process__checkboxes {
+    -webkit-column-gap: calc(
+      0.9375rem + 0.9375 * (100vw - 62rem) / 58
+    );
+    -moz-column-gap: calc(
+      0.9375rem + 0.9375 * (100vw - 62rem) / 58
+    );
+    column-gap: calc(
+      0.9375rem + 0.9375 * (100vw - 62rem) / 58
+    );
+  }
+}
+.process__inner[data-stepper-type=constructor] .process__checkboxes p {
+  -ms-grid-column-span: 2;
+  grid-column: span 2;
+}
+.process__inner[data-stepper-type=constructor] .inserts-input {
+  max-width: 11.875rem;
+}
+.process__inner[data-stepper-type=constructor] .inserts-label {
+  row-gap: 0.9375rem;
 }
 .process__steps-desktop {
   display: -webkit-box;
@@ -5032,19 +5177,25 @@ textarea {
     );
   }
 }
-.process__step.without-selected {
+@media (max-width: 767.98px) {
+  .process__step {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+.process__step[data-show-selected=false] {
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
 }
 @supports ((-moz-column-gap: clamp( 0.9375rem , 0.2693965517rem  +  1.0775862069vw , 1.5625rem )) or (column-gap: clamp( 0.9375rem , 0.2693965517rem  +  1.0775862069vw , 1.5625rem ))) {
-  .process__step.without-selected {
+  .process__step[data-show-selected=false] {
     -webkit-column-gap: clamp( 0.9375rem , 0.2693965517rem  +  1.0775862069vw , 1.5625rem );
     -moz-column-gap: clamp( 0.9375rem , 0.2693965517rem  +  1.0775862069vw , 1.5625rem );
     column-gap: clamp( 0.9375rem , 0.2693965517rem  +  1.0775862069vw , 1.5625rem );
   }
 }
 @supports not ((-moz-column-gap: clamp( 0.9375rem , 0.2693965517rem  +  1.0775862069vw , 1.5625rem )) or (column-gap: clamp( 0.9375rem , 0.2693965517rem  +  1.0775862069vw , 1.5625rem ))) {
-  .process__step.without-selected {
+  .process__step[data-show-selected=false] {
     -webkit-column-gap: calc(
       0.9375rem + 0.625 * (100vw - 62rem) / 58
     );
@@ -5056,27 +5207,21 @@ textarea {
     );
   }
 }
-.process__step.without-selected .process__step-title {
+.process__step[data-show-selected=false] .process__step-title {
   grid-column: unset;
 }
-.process__step.without-selected .process__items {
+.process__step[data-show-selected=false] .process__items {
   -ms-grid-columns: (1fr)[3];
   grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 767.98px) {
-  .process__step.without-selected .process__items {
+  .process__step[data-show-selected=false] .process__items {
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 575.98px) {
-  .process__step.without-selected .process__items {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 767.98px) {
-  .process__step {
+  .process__step[data-show-selected=false] .process__items {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
@@ -5322,11 +5467,6 @@ textarea {
   grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
   gap: 0.625rem;
 }
-.process__finale-checkbox {
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
-}
 .process__finale-label {
   row-gap: 0.625rem;
 }
@@ -5344,5 +5484,17 @@ textarea {
     -ms-grid-column-span: 1;
     grid-column: span 1;
   }
+}
+.process__notice {
+  row-gap: 0.9375rem;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+.process__notice-text {
+  display: none;
+}
+.process__notice-text.active {
+  display: block;
 }
 /*# sourceMappingURL=main.css.map */
