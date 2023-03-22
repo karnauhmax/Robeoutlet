@@ -1,4 +1,5 @@
 .partners {
+  @include adaptiveValue(padding-top, 100, 40, 1920, 360, 1);
   &__inner {
     padding-left: max(calc((100% - 1400px) / 2), rem(20));
     @include _576 {

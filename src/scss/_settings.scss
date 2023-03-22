@@ -33,15 +33,20 @@ li {
   padding: 0;
 }
 
-.main {
-  @include adaptiveValue(margin-bottom, 95, 25, 1920, 360, 1);
-}
+// .main {
+//   @include adaptiveValue(margin-bottom, 95, 25, 1920, 360, 1);
+// }
 
 .page {
   height: 100%;
   -webkit-text-size-adjust: 100%;
   @include scrollbar(#cfcfcf, var(--primary), 12px, vertical, 0, #747373);
   @include scrollbarSettingsForFirefox(#cfcfcf, var(--primary));
+}
+
+.main-sections-wrapper {
+  background-color: var(--lightgrey);
+  z-index: 1;
 }
 
 .page__body {
@@ -183,7 +188,7 @@ a {
   @include adaptiveValue(margin-bottom, 60, 20, 1920, 360, 1);
 }
 
-section:not(:last-of-type) {
+section {
   @include adaptiveValue(padding-bottom, 100, 40, 1920, 360, 1);
 }
 
