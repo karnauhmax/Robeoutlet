@@ -640,12 +640,12 @@
       </div>
     </section> -->
 
-    <!-- <section class="process">
+    <section class="process" data-stepper-type="quiz">
       <div class="container">
         <h2 class="process__title title-with-margin uppercase-bold section-title  ">
           Start ordering Framed Sliding Doors
         </h2>
-        <div class="process__inner grid" data-stepper-type="quiz">
+        <div class="process__inner grid">
           <div class="process__steps process__steps-desktop">
             <button class="process__step-btn arrow-link white-arrow-link active">
               Step 1
@@ -664,7 +664,7 @@
             </button>
 
           </div>
-          <div class="process__step grid without-selected" data-show-selected="false">
+          <div class="process__step grid process__step-start" data-show-selected="false">
             <p class="uppercase-bold section-title process__step-title">
               Step 1. Select the finish
             </p>
@@ -695,7 +695,7 @@
               </div>
             </div>
           </div>
-          <div class="process__step grid">
+          <div class="process__step grid" data-show-selected="true">
             <p class="uppercase-bold section-title process__step-title">
               Step 2. Select the door type
             </p>
@@ -742,7 +742,7 @@
               </div>
             </div>
           </div>
-          <div class="process__step grid">
+          <div class="process__step grid" data-show-selected="true">
             <p class="uppercase-bold section-title process__step-title">
               Step 2. Select the door type
             </p>
@@ -797,7 +797,7 @@
               </div>
             </div>
           </div>
-          <div class="process__step grid">
+          <div class="process__step grid" data-show-selected="true">
             <p class="uppercase-bold section-title process__step-title">
               Step 2. Select the door type
             </p>
@@ -858,7 +858,7 @@
               </div>
             </div>
           </div>
-          <div class="process__step process__step-final grid">
+          <div class="process__step process__step-final grid" data-show-selected="true">
             <p class="uppercase-bold section-title process__step-title">
               Step 2. Select the door type
             </p>
@@ -945,11 +945,11 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
-    <section class="process">
+    <section class="process" data-stepper-type="constructor">
       <div class="container">
-        <div class="process__inner grid" data-stepper-type="constructor">
+        <div class="process__inner grid">
           <h2 class="process__title title-with-margin uppercase-bold section-title  ">
             Start ordering Wardrobe inserts DIY
           </h2>
@@ -974,15 +974,15 @@
             </button>
 
           </div>
-          <div class="process__step grid without-selected">
+          <div class="process__step grid without-selected process__step-start" data-show-selected="false">
             <div class="process__img ibg">
-              <!-- <img loading="lazy" src="img/svg/top-shelf.svg" class="image" width="241" height="504" alt="Shelf"> -->
+              <img loading="lazy" src="img/svg/top-shelf.svg" class="image" width="241" height="504" alt="Shelf">
             </div>
             <div class="process__info grid">
               <p class="uppercase-bold section-title process__step-title">
                 Design your wardrobe inserts:
               </p>
-              <div class="process__checkboxes grid">
+              <!-- <div class="process__checkboxes grid">
                 <p class="text">
                   <strong>
                     Top Shelf height H mm
@@ -1006,13 +1006,234 @@
                   2050 mm
                   <span class="checkbox"></span>
                 </label>
-              </div>
+              </div> -->
               <label for="#" class="process__label inserts-label grid">
                 <span class="text text-500">Total width, wall to wall, mm</span>
                 <input class="input-reset custom-input inserts-input" type="number" name="" id="" placeholder="0 мм">
               </label>
               <p class="text text-300 process__note">Whole system suspended 250mm above the floor</p>
             </div>
+          </div>
+          <div class="process__step grid without-selected" data-show-selected="false">
+            <p class="process__step-title uppercase-bold section-title"> Add your shelving units:</p>
+            <div class="process__items">
+              <div class="process__item">
+                <div class="process__item-name text-500">
+                  4 Drawers
+                  & 3 shelving unit (mm)
+                </div>
+
+                  <img loading="lazy" src="img/svg/constructor-item-test.svg" class="process__item-img" width="166" height="317" alt="">
+
+                <div class="process__item-inputs grid">
+                  <label class="checkbox-label text-300">
+                    <input
+                      type="radio"
+                      value="Free Pickup"
+                      name="Type of Delivery"
+                    />
+                    500
+                    <span class="checkbox"></span>
+                  </label>
+                  <label class="checkbox-label text-300">
+                    <input
+                      type="radio"
+                      value="Free Pickup"
+                      name="Type of Delivery"
+                    />
+                    600
+                    <span class="checkbox"></span>
+                  </label>
+                  <div class="process__counter counter">
+                    <button class="minus">
+                      <svg width="8" height="10" viewBox="0 0 3 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0H2.628V0.96H0V0Z" fill="black"/>
+                        </svg>
+                    </button>
+                    <input type="number" class="input-reset " value="1">
+                    <button class="plus active">
+                      <svg width="10" height="10" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.27599 6.72V0H4.17599V6.72H3.27599ZM0.359985 3.804V2.904H7.07999V3.804H0.359985Z" fill="black"/>
+                        </svg>
+                    </button>
+                  </div>
+
+              </div>
+              </div>
+              <div class="process__item">
+                <p class="process__item-name text-500">
+                  4 Drawers
+                  & 3 shelving unit (mm)
+                </p>
+
+                  <img loading="lazy" src="img/svg/constructor-item-test-2.svg" class="process__item-img" width="310" height="317" alt="">
+
+                  <div class="process__item-inputs grid">
+                    <label class="checkbox-label text-300">
+                      <input
+                        type="radio"
+                        value="Free Pickup"
+                        name="Type of Delivery"
+                      />
+                      500
+                      <span class="checkbox"></span>
+                    </label>
+                    <label class="checkbox-label text-300">
+                      <input
+                        type="radio"
+                        value="Free Pickup"
+                        name="Type of Delivery"
+                      />
+                      600
+                      <span class="checkbox"></span>
+                    </label>
+                    <div class="process__counter counter">
+                      <button class="minus">
+                        <svg width="8" height="10" viewBox="0 0 3 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 0H2.628V0.96H0V0Z" fill="black"/>
+                          </svg>
+                      </button>
+                      <input type="number" class="input-reset " value="1">
+                      <button class="plus active">
+                        <svg width="10" height="10" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.27599 6.72V0H4.17599V6.72H3.27599ZM0.359985 3.804V2.904H7.07999V3.804H0.359985Z" fill="black"/>
+                          </svg>
+                      </button>
+                    </div>
+
+                </div>
+              </div>
+              <div class="process__item">
+                <div class="process__item-name text-500">
+                  4 Drawers
+                  & 3 shelving unit (mm)
+                </div>
+
+                  <img loading="lazy" src="img/svg/constructor-item-test.svg" class="process__item-img" width="166" height="317" alt="">
+
+                  <div class="process__item-inputs grid">
+                    <label class="checkbox-label text-300">
+                      <input
+                        type="radio"
+                        value="Free Pickup"
+                        name="Type of Delivery"
+                      />
+                      500
+                      <span class="checkbox"></span>
+                    </label>
+                    <label class="checkbox-label text-300">
+                      <input
+                        type="radio"
+                        value="Free Pickup"
+                        name="Type of Delivery"
+                      />
+                      600
+                      <span class="checkbox"></span>
+                    </label>
+                    <div class="process__counter counter">
+                      <button class="minus">
+                        <svg width="8" height="10" viewBox="0 0 3 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 0H2.628V0.96H0V0Z" fill="black"/>
+                          </svg>
+                      </button>
+                      <input type="number" class="input-reset " value="1">
+                      <button class="plus active">
+                        <svg width="10" height="10" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.27599 6.72V0H4.17599V6.72H3.27599ZM0.359985 3.804V2.904H7.07999V3.804H0.359985Z" fill="black"/>
+                          </svg>
+                      </button>
+                    </div>
+
+                </div>
+              </div>
+              <div class="process__item">
+                <p class="process__item-name text-500">
+                  4 Drawers
+                  & 3 shelving unit (mm)
+                </p>
+
+                  <img loading="lazy" src="img/svg/constructor-item-test.svg" class="process__item-img" width="166" height="317" alt="">
+
+                  <div class="process__item-inputs grid">
+                    <label class="checkbox-label text-300">
+                      <input
+                        type="radio"
+                        value="Free Pickup"
+                        name="Type of Delivery"
+                      />
+                      500
+                      <span class="checkbox"></span>
+                    </label>
+                    <label class="checkbox-label text-300">
+                      <input
+                        type="radio"
+                        value="Free Pickup"
+                        name="Type of Delivery"
+                      />
+                      600
+                      <span class="checkbox"></span>
+                    </label>
+                </div>
+              </div>
+              <div class="process__item">
+                <p class="process__item-name text-500">
+                  4 Drawers
+                  & 3 shelving unit (mm)
+                </p>
+
+                  <img loading="lazy" src="img/svg/constructor-item-test.svg" class="process__step-img" width="166" height="317" alt="">
+
+                  <div class="process__item-inputs grid">
+                    <label class="checkbox-label text-300">
+                      <input
+                        type="radio"
+                        value="Free Pickup"
+                        name="Type of Delivery"
+                      />
+                      500
+                      <span class="checkbox"></span>
+                    </label>
+                    <label class="checkbox-label text-300">
+                      <input
+                        type="radio"
+                        value="Free Pickup"
+                        name="Type of Delivery"
+                      />
+                      600
+                      <span class="checkbox"></span>
+                    </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="process__step process__step-final grid" data-show-selected="false">
+            <p class="uppercase-bold section-title process__step-title">
+              Step 2. Select the door type
+            </p>
+            <form id="opening-size-form" class="process__finale grid">
+              <div class="process__finale-img ibg">
+                <img loading="lazy" src="img/svg/result-test.svg" class="image" width="505" height="340" alt="Opening Size Image">
+              </div>
+              <div class="process__finale-body grid">
+                <div class="process__unit text text-300">
+                  <p>Width</p>
+                  <p>2000 мм</p>
+                </div>
+                <div class="process__unit text text-300">
+                  <p>Width</p>
+                  <p>2000 мм</p>
+                </div>
+                <p class="text text-500 process-constructor__notice">
+                  You can customise units location by Clicking on the unit and moving it to the needed position of the wardrobe
+                </p>
+                <p class="process__finale-total uppercase-bold text ">
+                  Total: <span>$0 incl GST</span>
+                </p>
+                <button type="submit" form="opening-size-form" class="uppercase-bold arrow-link dark-arrow-link process__finale-btn"> Add to cart</button>
+              </div>
+            </form>
+
+
           </div>
         </div>
       </div>
