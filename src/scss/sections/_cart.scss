@@ -361,13 +361,7 @@
   }
 
   &__delivery-input {
-    border: 1px solid var(--primary);
-    background-color: var(--white);
-    padding: rem(15) rem(10);
     max-width: rem(360);
-    &::placeholder {
-      color: var(--primary);
-    }
   }
 
   //form styles

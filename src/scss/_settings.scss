@@ -297,6 +297,18 @@ input[type='number'] {
   }
 }
 
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: rem(10);
+}
+
+.btn-dark {
+  background-color: var(--primary);
+  color: var(--lightgrey);
+}
+
 .bold-on-hover {
   &::after {
     content: attr(data-content);

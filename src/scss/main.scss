@@ -17,6 +17,8 @@
 @import './components/form';
 @import './components/preloader';
 @import './components/checkbox';
+@import './components/custom-input';
+@import './components/counter';
 
 // подключения секций страницы
 @import './sections/hero';
@@ -30,3 +32,4 @@
 @import './sections/contact';
 @import './sections/cart';
 @import './sections/404';
+@import './sections/single';
