@@ -6,13 +6,13 @@ if (document.querySelector('.guide')) {
   const guide = document.querySelector('.guide');
 
   guide.addEventListener('click', e => {
-    if (e.target.closest('.tabs__btn')) {
+    if (e.target.closest('.tabs-btn')) {
       const btnData = e.target.dataset.tabsPath;
       const self = e.currentTarget;
 
-      self.querySelector('.guide-slider__prev').dataset.swiperTestPrev =
+      self.querySelector('.guide-slider-prev').dataset.swiperTestPrev =
         btnData;
-      self.querySelector('.guide-slider__next').dataset.swiperTestNext =
+      self.querySelector('.guide-slider-next').dataset.swiperTestNext =
         btnData;
     }
   });

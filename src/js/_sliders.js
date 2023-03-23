@@ -31,8 +31,8 @@ if (document.querySelector('.guide')) {
     observer: true,
     observeParents: true,
     navigation: {
-      nextEl: '.guide-slider__next',
-      prevEl: '.guide-slider__prev'
+      nextEl: '.guide-slider-next',
+      prevEl: '.guide-slider-prev'
     },
 
     breakpoints: {
@@ -54,8 +54,8 @@ if (document.querySelector('.guide')) {
     observer: true,
     observeParents: true,
     navigation: {
-      nextEl: '.guide-slider__next',
-      prevEl: '.guide-slider__prev'
+      nextEl: '.guide-slider-next',
+      prevEl: '.guide-slider-prev'
     },
 
     on: {

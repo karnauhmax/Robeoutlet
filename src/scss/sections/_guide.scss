@@ -38,7 +38,7 @@
     font-weight: 300;
   }
 
-  &-slider__buttons {
+  &-slider-buttons {
     position: relative;
     display: grid;
     grid-template-columns: min-content min-content;
@@ -50,19 +50,19 @@
     }
   }
 
-  &-slider__next,
-  &-slider__prev {
+  &-slider-next,
+  &-slider-prev {
     position: static;
     width: 30px;
     height: 10px;
   }
 
-  &-slider__button {
+  &-slider-button {
     display: inline-flex;
     align-items: center;
   }
 
-  button.guide-slider__prev {
+  button.guide-slider-prev {
     transform: rotate(180deg);
   }
 
