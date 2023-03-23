@@ -91,3 +91,4 @@ import { burger } from "./functions/burger";
 
 // dynamic adapt
 // import DynamicAdapt from "./functions/dynamicAdapt";
+

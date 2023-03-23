@@ -1,5 +1,5 @@
-import Accordeon from '../functions/accordeon';
+import Accordion from '../functions/accordion';
 
 if (document.querySelector('.faq')) {
-  new Accordeon('.faq').renderAccordeonWithHead();
+  new Accordion('.faq').renderaccordionWithHead();
 }

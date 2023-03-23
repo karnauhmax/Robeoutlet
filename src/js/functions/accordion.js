@@ -1,16 +1,16 @@
-class Accordeon {
+class Accordion {
   constructor(selector) {
     this.selector = document.querySelector(selector);
-    this.items = this.selector.querySelectorAll('.accordeon__item');
+    this.items = this.selector.querySelectorAll('.accordion__item');
   }
 
-  renderAccordeonDefault() {
+  renderaccordionDefault() {
     this.selector.addEventListener('click', e => {
       const target = e.target;
-      const item = target.closest('.accordeon__item');
+      const item = target.closest('.accordion__item');
 
       if (item) {
-        const questionContent = item.querySelector('.accordeon__item-body');
+        const questionContent = item.querySelector('.accordion__item-body');
         const contentHeight = questionContent.scrollHeight;
 
         console.log(this.items);
@@ -21,7 +21,7 @@ class Accordeon {
             currentItem.classList.contains('active')
           ) {
             currentItem.classList.remove('active');
-            currentItem.querySelector('.accordeon__item-body').style.maxHeight =
+            currentItem.querySelector('.accordion__item-body').style.maxHeight =
               null;
           }
         });
@@ -37,15 +37,15 @@ class Accordeon {
     });
   }
 
-  renderAccordeonWithHead() {
+  renderaccordionWithHead() {
     this.selector.addEventListener('click', e => {
       const target = e.target;
-      const item = target.closest('.accordeon__item');
-      const head = target.closest('.accordeon__item-head');
+      const item = target.closest('.accordion__item');
+      const head = target.closest('.accordion__item-head');
 
       if (head) {
         console.log(1);
-        const questionContent = item.querySelector('.accordeon__item-body');
+        const questionContent = item.querySelector('.accordion__item-body');
         const contentHeight = questionContent.scrollHeight;
 
         console.log(this.items);
@@ -56,7 +56,7 @@ class Accordeon {
             currentItem.classList.contains('active')
           ) {
             currentItem.classList.remove('active');
-            currentItem.querySelector('.accordeon__item-body').style.maxHeight =
+            currentItem.querySelector('.accordion__item-body').style.maxHeight =
               null;
           }
         });
@@ -73,4 +73,4 @@ class Accordeon {
   }
 }
 
-export default Accordeon;
+export default Accordion;
