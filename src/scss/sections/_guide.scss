@@ -40,13 +40,17 @@
 
   &-slider-buttons {
     position: relative;
-    display: grid;
     grid-template-columns: min-content min-content;
     column-gap: rem(15);
     align-self: end;
+    display: none;
 
     @include _576 {
       justify-self: end;
+    }
+
+    &.active {
+      display: grid;
     }
   }
 
