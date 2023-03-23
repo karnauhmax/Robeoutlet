@@ -1,6 +1,6 @@
 import Tab from '../functions/tabs';
-import Accordeon from '../functions/accordeon';
+import Accordion from '../functions/accordion';
 if (document.querySelector('.photos')) {
   new Tab('.photos').renderTab();
-  new Accordeon('.photos').renderAccordeonDefault();
+  new Accordion('.photos').renderaccordionDefault();
 }
