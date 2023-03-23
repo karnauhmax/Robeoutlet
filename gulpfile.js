@@ -17,6 +17,7 @@ const htmlmin = require("gulp-htmlmin");
 const gulpif = require("gulp-if");
 const notify = require("gulp-notify");
 const image = require("gulp-imagemin");
+const webphtml = require("gulp-webp-html-nosvg");
 const { readFileSync } = require("fs");
 const typograf = require("gulp-typograf");
 const webp = require("gulp-webp");
@@ -28,7 +29,6 @@ const path = require("path");
 const zip = require("gulp-zip");
 const rootFolder = path.basename(path.resolve());
 const critical = require("critical");
-const webpHtml = require("gulp-webp-html-nosvg");
 
 // paths
 const srcFolder = "./src";
@@ -247,8 +247,7 @@ const images = () => {
         ])
       )
     )
-    .pipe(dest(paths.buildImgFolder))
-    .pipe(webpHtml());
+    .pipe(dest(paths.buildImgFolder));
 };
 
 const webpImages = () => {
@@ -276,6 +275,7 @@ const htmlInclude = () => {
         locale: ["ru", "en-US"],
       })
     )
+    .pipe(webphtml())
     .pipe(dest(buildFolder))
     .pipe(browserSync.stream());
 };
