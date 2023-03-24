@@ -1,9 +1,0 @@
-.advantages {
-  &__item {
-    @include _360 {
-      justify-items: center;
-      justify-self: center;
-      text-align: center;
-    }
-  }
-}
