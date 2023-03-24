@@ -383,7 +383,7 @@ const getCritical = (done) => {
     // HTML source file
     src: "index.html",
     // Your CSS Files (optional)
-    css: ["css/main.css", "css/vendor.css"],
+    css: ["css/main.css"],
     // Viewport width
     width: 1300,
     // Viewport height
@@ -399,7 +399,7 @@ const getCritical = (done) => {
     // ignore CSS rules
     ignore: {
       atrule: ["@font-face"],
-      // rule: [/some-regexp/],
+      rule: [/^\.hero/],
       // decl: (node, value) => /big-image\.png/.test(value),
     },
   });
@@ -441,7 +441,7 @@ exports.build = series(
   webpImages,
   svgSprites,
   htmlMinify,
-  // getCritical
+  getCritical
 );
 
 exports.cache = series(cache, rewrite);
