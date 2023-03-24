@@ -281,20 +281,19 @@ const htmlInclude = () => {
 };
 
 const criticalCss = (done) => {
-  // return src(buildFolder).pipe(() => {
-  //   critical.generate({
-  //     base: buildFolder,
-  //     src: "index.html",
-  //     dest: "app/index-critical.html",
-  //     minify: true,
-  //     width: 320,
-  //     height: 480,
-  //   });
+  return src(buildFolder).pipe(() => {
+    critical.generate({
+      base: buildFolder,
+      src: "index.html",
+      dest: "app/index-critical.html",
+      minify: true,
+      width: 320,
+      height: 480,
+    });
 
-  //   done();
-  // });
+    done();
+  });
 
-  return src(buildFolder);
 };
 
 const watchFiles = () => {
@@ -384,7 +383,7 @@ const getCritical = (done) => {
     // HTML source file
     src: "index.html",
     // Your CSS Files (optional)
-    css: ["css/main.css"],
+    css: ["css/main.css", "css/vendor.css"],
     // Viewport width
     width: 1300,
     // Viewport height
@@ -404,6 +403,7 @@ const getCritical = (done) => {
       // decl: (node, value) => /big-image\.png/.test(value),
     },
   });
+
   done();
 };
 
@@ -441,7 +441,7 @@ exports.build = series(
   webpImages,
   svgSprites,
   htmlMinify,
-  getCritical
+  // getCritical
 );
 
 exports.cache = series(cache, rewrite);
