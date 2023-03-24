@@ -1,16 +1,16 @@
 class Accordion {
   constructor(selector) {
     this.selector = document.querySelector(selector);
-    this.items = this.selector.querySelectorAll('.accordion__item');
+    this.items = this.selector.querySelectorAll('.accordion-item');
   }
 
   renderaccordionDefault() {
     this.selector.addEventListener('click', e => {
       const target = e.target;
-      const item = target.closest('.accordion__item');
+      const item = target.closest('.accordion-item');
 
       if (item) {
-        const questionContent = item.querySelector('.accordion__item-body');
+        const questionContent = item.querySelector('.accordion-item__body');
         const contentHeight = questionContent.scrollHeight;
 
         console.log(this.items);
@@ -21,7 +21,7 @@ class Accordion {
             currentItem.classList.contains('active')
           ) {
             currentItem.classList.remove('active');
-            currentItem.querySelector('.accordion__item-body').style.maxHeight =
+            currentItem.querySelector('.accordion-item__body').style.maxHeight =
               null;
           }
         });
@@ -40,12 +40,12 @@ class Accordion {
   renderaccordionWithHead() {
     this.selector.addEventListener('click', e => {
       const target = e.target;
-      const item = target.closest('.accordion__item');
-      const head = target.closest('.accordion__item-head');
+      const item = target.closest('.accordion-item');
+      const head = target.closest('.accordion-item__head');
 
       if (head) {
         console.log(1);
-        const questionContent = item.querySelector('.accordion__item-body');
+        const questionContent = item.querySelector('.accordion-item__body');
         const contentHeight = questionContent.scrollHeight;
 
         console.log(this.items);
@@ -56,7 +56,7 @@ class Accordion {
             currentItem.classList.contains('active')
           ) {
             currentItem.classList.remove('active');
-            currentItem.querySelector('.accordion__item-body').style.maxHeight =
+            currentItem.querySelector('.accordion-item__body').style.maxHeight =
               null;
           }
         });

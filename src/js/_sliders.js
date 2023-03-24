@@ -31,8 +31,8 @@ if (document.querySelector('.guide')) {
     observer: true,
     observeParents: true,
     navigation: {
-      nextEl: '.guide-slider__next',
-      prevEl: '.guide-slider__prev'
+      nextEl: '[data-slider-next="video"]',
+      prevEl: '[data-slider-prev="video"]'
     },
 
     breakpoints: {
@@ -54,8 +54,8 @@ if (document.querySelector('.guide')) {
     observer: true,
     observeParents: true,
     navigation: {
-      nextEl: '.guide-slider__next',
-      prevEl: '.guide-slider__prev'
+      nextEl: '[data-slider-next="brochure"]',
+      prevEl: '[data-slider-prev="brochure"]'
     },
 
     on: {

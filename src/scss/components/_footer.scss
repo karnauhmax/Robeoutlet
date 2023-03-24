@@ -97,14 +97,14 @@
     font-weight: 300;
   }
 
-  &-list__contact {
+  &-list-contact {
     grid-column: 4/7;
     @include _992 {
       grid-column: unset;
     }
   }
 
-  &-list__info {
+  &-list-info {
     grid-column: 7/10;
     @include _992 {
       grid-column: unset;

@@ -66,11 +66,12 @@ li {
   }
 
   @include _992 {
-    padding-top: rem(58);
+    // padding-top: rem(58);
+    @include adaptiveValue(padding-top, 58, 51, 992, 576, 1);
   }
 
   @include _576 {
-    padding-top: rem(44);
+    padding-top: rem(45);
   }
 }
 
@@ -295,7 +296,7 @@ input[type='number'] {
   }
 }
 
-.tabs__content {
+.tabs-content {
   display: none;
   &-active {
     display: block;
@@ -342,7 +343,7 @@ input[type='number'] {
   }
 }
 
-button.tabs__btn-active {
+button.tabs-btn-active {
   position: relative;
   font-weight: 500;
   padding-left: rem(20);

@@ -38,31 +38,35 @@
     font-weight: 300;
   }
 
-  &-slider__buttons {
+  &-slider-buttons {
     position: relative;
-    display: grid;
     grid-template-columns: min-content min-content;
     column-gap: rem(15);
     align-self: end;
+    display: none;
 
     @include _576 {
       justify-self: end;
     }
+
+    &.active {
+      display: grid;
+    }
   }
 
-  &-slider__next,
-  &-slider__prev {
+  &-slider-next,
+  &-slider-prev {
     position: static;
     width: 30px;
     height: 10px;
   }
 
-  &-slider__button {
+  &-slider-button {
     display: inline-flex;
     align-items: center;
   }
 
-  button.guide-slider__prev {
+  button.guide-slider-prev {
     transform: rotate(180deg);
   }
 
