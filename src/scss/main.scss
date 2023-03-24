@@ -1,8 +1,8 @@
 // базовые подключения
+@import "./vendor/normalize";
 @import 'vars';
 @import 'mixins';
 @import 'fonts';
-@import 'vendor';
 @import 'settings';
 
 // подключения компонентов страницы

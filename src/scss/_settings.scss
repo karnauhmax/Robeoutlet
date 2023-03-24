@@ -71,7 +71,8 @@ li {
   }
 
   @include _576 {
-    padding-top: rem(45);
+    // padding-top: rem(45);
+    @include adaptiveValue(padding-top, 46, 45, 992, 360, 1);
   }
 }
 
