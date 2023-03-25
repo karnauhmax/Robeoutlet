@@ -399,7 +399,6 @@ const getCritical = (done) => {
     // ignore CSS rules
     ignore: {
       atrule: ["@font-face"],
-      rule: [/^\.hero/],
       // decl: (node, value) => /big-image\.png/.test(value),
     },
   });
@@ -441,7 +440,7 @@ exports.build = series(
   webpImages,
   svgSprites,
   htmlMinify,
-  // getCritical
+  getCritical
 );
 
 exports.cache = series(cache, rewrite);
