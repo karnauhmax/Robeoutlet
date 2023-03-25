@@ -440,7 +440,7 @@ exports.build = series(
   webpImages,
   svgSprites,
   htmlMinify,
-  getCritical
+  // getCritical
 );
 
 exports.cache = series(cache, rewrite);
