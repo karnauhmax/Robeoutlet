@@ -333,17 +333,17 @@ __webpack_require__.r(__webpack_exports__);
     menu?.classList.toggle('active');
     if (menu?.classList.contains('active')) {
       burger?.setAttribute('aria-expanded', 'true');
-      burger?.setAttribute('aria-label', 'Закрыть меню');
+      burger?.setAttribute('aria-label', 'Close menu');
       (0,_functions_disable_scroll__WEBPACK_IMPORTED_MODULE_0__.disableScroll)();
     } else {
       burger?.setAttribute('aria-expanded', 'false');
-      burger?.setAttribute('aria-label', 'Открыть меню');
+      burger?.setAttribute('aria-label', 'Open menu');
       (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
     }
   });
   overlay?.addEventListener('click', () => {
     burger?.setAttribute('aria-expanded', 'false');
-    burger?.setAttribute('aria-label', 'Открыть меню');
+    burger?.setAttribute('aria-label', 'Open menu');
     burger.classList.remove('active');
     menu.classList.remove('active');
     (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
@@ -351,7 +351,7 @@ __webpack_require__.r(__webpack_exports__);
   menuItems?.forEach(el => {
     el.addEventListener('click', () => {
       burger?.setAttribute('aria-expanded', 'false');
-      burger?.setAttribute('aria-label', 'Открыть меню');
+      burger?.setAttribute('aria-label', 'Open menu');
       burger.classList.remove('active');
       menu.classList.remove('active');
       (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
