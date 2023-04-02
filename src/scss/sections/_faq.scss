@@ -19,34 +19,41 @@
     overflow: hidden;
     &:not(:last-child) {
       border-bottom: 1px solid var(--primary);
-      .faq__item-head {
-      }
-    }
-
-    &:not(:first-child) {
-      .faq__item-head {
-        padding-top: rem(15);
-
-        @include _576 {
-          padding-top: rem(10);
-        }
-      }
     }
 
     &.active {
-      .faq__arrow {
+      .faq__item-head::after {
         transform: rotate(180deg);
       }
     }
   }
 
   &__item-head {
-    display: grid;
-    grid-template-columns: 1fr 16px;
-    align-items: center;
+    position: relative;
+    width: 100%;
+    text-align: start;
     gap: rem(10);
     cursor: pointer;
+    padding-right: rem(40);
     padding-bottom: rem(15);
+    font-weight: 500;
+    padding-top: rem(15);
+
+    @include _576 {
+      padding-top: rem(10);
+    }
+
+    &::after {
+      content: "";
+      background-image: url("../img/svg/faq-arrow.svg");
+      position: absolute;
+      top: 19px;
+      right: 0;
+      width: 15px;
+      height: 15px;
+      background-repeat: no-repeat;
+      transition: transform 0.3s ease;
+    }
 
     @include _576 {
       padding-bottom: rem(10);
