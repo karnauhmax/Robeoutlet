@@ -140,7 +140,7 @@
     display: flex;
     flex-wrap: wrap;
     @include adaptiveValue(column-gap, 50, 20, 1920, 768, 1);
-    row-gap: rem(20);
+    row-gap: rem(15);
     @include _1200 {
       justify-content: space-between;
     }
