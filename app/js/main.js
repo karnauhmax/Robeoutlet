@@ -15,7 +15,14 @@
 /*!*******************************!*\
   !*** ./src/js/_components.js ***!
   \*******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_framed_steps__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/_framed-steps */ "./src/js/components/_framed-steps.js");
+/* harmony import */ var _components_selected__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/_selected */ "./src/js/components/_selected.js");
+/* harmony import */ var _components_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/_custom-select */ "./src/js/components/_custom-select.js");
+
 
 
 
@@ -141,6 +148,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sections_guide__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sections/_guide */ "./src/js/sections/_guide.js");
 /* harmony import */ var _sections_preloader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sections/_preloader */ "./src/js/sections/_preloader.js");
 /* harmony import */ var _sections_preloader__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_sections_preloader__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _sections_framed_quiz__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sections/_framed-quiz */ "./src/js/sections/_framed-quiz.js");
+/* harmony import */ var _sections_frameless_quiz__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sections/_frameless-quiz */ "./src/js/sections/_frameless-quiz.js");
+/* harmony import */ var _sections_constructor_quiz__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sections/_constructor-quiz */ "./src/js/sections/_constructor-quiz.js");
+
+
+
 
 
 
@@ -236,6 +249,620 @@ __webpack_require__.r(__webpack_exports__);
   documentEl: document,
   htmlEl: document.documentElement,
   bodyEl: document.body
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_custom-select.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/_custom-select.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _select_option__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_select-option */ "./src/js/components/_select-option.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data() {
+    return {
+      isVisible: false,
+      screenWidth: window.innerWidth
+    };
+  },
+  template: `
+  <div v-if="screenWidth <= 767" class="select text-300" @click="isVisible = !isVisible">
+    <button class="select__head">Step {{this.$root.currentStep}}</button>
+    <div class="select__options grid-flow" v-show="isVisible">
+      <select-option v-for="(button, index) in options" :index="index + 1" @click="selectStep(index + 1)"></select-option>
+    </div>
+    </div>
+  `,
+  props: {
+    options: Array
+  },
+  methods: {
+    selectStep(index) {
+      if (this.$root.currentStep > index) {
+        this.$root.selectedArr.splice(index - 1);
+        for (let i = index; i < this.$root.currentStep; i++) {
+          this.$root.selectedArr.splice(i - 1);
+        }
+        this.$root.currentStep = index;
+        console.log(this.$root.currentStep);
+      }
+      console.log(index);
+    },
+    updateScreenWidth() {
+      this.screenWidth = window.innerWidth;
+    },
+    hideSelect() {
+      this.isVisible = false;
+    }
+  },
+  components: {
+    'select-option': _select_option__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted() {
+    window.addEventListener('resize', this.updateScreenWidth);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateScreenWidth);
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_default-item.js":
+/*!********************************************!*\
+  !*** ./src/js/components/_default-item.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  template: `
+
+  <div tabindex="0" class="process__item grid" @click="nextStep">
+         <div class="process__img ibg">
+          <img loading="lazy" :src="imgPath + img" width="445" height="290" alt="Framed Silver Doorss">
+        </div>
+        <p class="process__name uppercase-bold">
+          {{title}}
+        </p>
+      </div>
+  `,
+  props: {
+    title: String,
+    img: String,
+    imgPath: String
+  },
+  methods: {
+    nextStep() {
+      this.$root.selectedArr.push({
+        title: this.title,
+        img: this.img
+      });
+      this.$root.currentStep++;
+      console.log(this.$root.selectedArr);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_final-item.js":
+/*!******************************************!*\
+  !*** ./src/js/components/_final-item.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  template: `
+  <form id="opening-size-form" class="process__finale grid">
+   <div class="process__finale-img ibg">
+    <img loading="lazy" src="img/svg/opening-size.svg" class="image" width="505" height="340" alt="Opening Size Image">
+   </div>
+   <div class="process__finale-body grid">
+    <p class="uppercase-bold process__finale-title">
+     provide your opening size in mm
+    </p>
+    <div class="process__finale-inputs grid">
+     <label class="process__finale-label grid">
+      <span class="text text-500">A, мм</span>
+      <input type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
+     </label>
+     <label class="process__finale-label grid">
+      <span class="text text-500">B, мм</span>
+      <input type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
+     </label>
+     <label class="process__finale-label grid">
+      <span class="text text-500">C, мм</span>
+      <input type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
+     </label>
+     <label class="process__finale-label grid">
+      <span class="text text-500">D, мм</span>
+      <input type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
+     </label>
+    </div>
+    <div class="process__notice grid">
+     <label class="checkbox-label text text-300 process__finale-checkbox grid">
+      <input type="radio" value="Free Pickup" name="Type of Delivery">
+      add floor board
+      <span class="checkbox"></span>
+     </label>
+     <p class="text text-300 process__notice-text">
+      16mm melamine board recommended to use on top of carpet or concrete floor. The bottom track applies on top of it.
+              Please provide the actual opening sizes and we will take care of deductions!
+     </p>
+    </div>
+    <p class="process__finale-total uppercase-bold text">
+     Total:
+     <span>$0 incl GST</span>
+    </p>
+   </div>
+  </form>
+  <button type="submit" form="opening-size-form" class="uppercase-bold process__finale-btn btn btn-dark"> Add to cart</button>
+
+  `
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_framed-steps.js":
+/*!********************************************!*\
+  !*** ./src/js/components/_framed-steps.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const framedSteps = [{
+  id: 1,
+  title: "Select the finish",
+  itemsType: "default",
+  showSelected: false,
+  items: [{
+    title: "Silver Mirror",
+    img: "silver-mirror.jpg"
+  }, {
+    title: "Grey Mirror",
+    img: "grey-mirror.jpg"
+  }, {
+    title: "White Vinyl",
+    img: "framed-silver-doors.jpg"
+  }, {
+    title: "MDF",
+    img: "white-mdf.jpg"
+  }, {
+    title: "Super White glass",
+    img: "super-white-glass.jpg"
+  }, {
+    title: "Black glass",
+    img: "black-glass.jpg"
+  }]
+}, {
+  id: 2,
+  title: "Select the door type",
+  itemsType: "default",
+  showSelected: true,
+  items: [{
+    title: "Silver Mirror",
+    img: "framed-silver-doors.jpg"
+  }, {
+    title: "Grey Mirror",
+    img: "framed-silver-doors.jpg"
+  }, {
+    title: "White Vinyl",
+    img: "framed-silver-doors.jpg"
+  }, {
+    title: "MDF",
+    img: "fully-framed-vinyl.jpg"
+  }, {
+    title: "Super White glass",
+    img: "fully-framed-vinyl.jpg"
+  }, {
+    title: "Black glass",
+    img: "fully-framed-vinyl.jpg"
+  }]
+}, {
+  id: 3,
+  title: "Select the Frames and tracks color",
+  itemsType: "preview",
+  showSelected: true,
+  items: [{
+    title: "White",
+    img: "framed-super-white-glass.jpg",
+    color: "#FFFFFF"
+  }, {
+    title: "Matt Black",
+    img: "framed-silver-doors-matt-black.jpg",
+    color: "#14100F"
+  }, {
+    title: "Chrome",
+    img: "framed-super-white-chrome.jpg",
+    color: "#A49F9B"
+  }, {
+    title: "Matt Silver",
+    img: "framed-silver-doors.jpg",
+    color: "#D9D8D7"
+  }]
+}, {
+  id: 4,
+  title: "Select the Tracks",
+  itemsType: "default",
+  showSelected: true,
+  items: [{
+    title: "Black Glass",
+    img: "framed-silver-doors.jpg"
+  }, {
+    title: "Grey Mirror",
+    img: "framed-silver-doors.jpg"
+  }]
+}, {
+  id: 5,
+  title: "Select the door type",
+  itemsType: "final",
+  showSelected: true
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (framedSteps);
+
+/***/ }),
+
+/***/ "./src/js/components/_frameless-steps.js":
+/*!***********************************************!*\
+  !*** ./src/js/components/_frameless-steps.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const framelessSteps = [{
+  id: 1,
+  title: "Select the finish",
+  itemsType: "default",
+  showSelected: false,
+  items: [{
+    title: "Silver Mirror",
+    img: "silver-mirror.jpg"
+  }, {
+    title: "Grey Mirror",
+    img: "grey-mirror.jpg"
+  }, {
+    title: "Super White glass",
+    img: "super-white-glass.jpg"
+  }, {
+    title: "Black glass",
+    img: "black-glass.jpg"
+  }]
+}, {
+  id: 2,
+  title: "Select the Frames and tracks color",
+  itemsType: "preview",
+  showSelected: true,
+  items: [{
+    title: "White",
+    img: "framed-super-white-glass.jpg",
+    color: "#FFFFFF"
+  }, {
+    title: "Matt Black",
+    img: "framed-silver-doors-matt-black.jpg",
+    color: "#14100F"
+  }, {
+    title: "Chrome",
+    img: "framed-super-white-chrome.jpg",
+    color: "#A49F9B"
+  }, {
+    title: "Matt Silver",
+    img: "framed-silver-doors.jpg",
+    color: "#D9D8D7"
+  }]
+}, {
+  id: 3,
+  title: "Select the Tracks",
+  itemsType: "default",
+  showSelected: true,
+  items: [{
+    title: "Double 82 mm",
+    img: "framed-silver-doors.jpg"
+  }, {
+    title: "Triple 122 mm",
+    img: "framed-silver-doors.jpg"
+  }]
+}, {
+  id: 4,
+  title: "Select the door type",
+  itemsType: "final",
+  showSelected: true
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (framelessSteps);
+
+/***/ }),
+
+/***/ "./src/js/components/_preview-item.js":
+/*!********************************************!*\
+  !*** ./src/js/components/_preview-item.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  template: `
+    <div tabindex="0" class="process__item grid" data-item-type="preview" @click="nextStep">
+      <div class="process__img ibg">
+      <img loading="lazy" :src="imgPath + img" class="image" width="445" height="290" alt="Framed Silver Doors">
+     </div>
+     <div class="process__info grid">
+      <p class="process__name uppercase-bold">
+       {{title}}
+      </p>
+      <div class="process__color" :style="'background-color: ' + color"></div>
+      </div>
+      </div>
+  `,
+  props: {
+    title: String,
+    img: String,
+    color: String,
+    imgPath: String
+  },
+  methods: {
+    nextStep() {
+      this.$root.selectedArr.push({
+        title: this.title,
+        img: this.img
+      });
+      this.$root.currentStep++;
+      console.log(this.$root.selectedArr);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_select-option.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/_select-option.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  template: `
+  <button class="select__option" :class="{'disabled': isDisabled }">step {{index}}</button>
+  `,
+  props: {
+    index: Number
+  },
+  computed: {
+    isDisabled() {
+      return this.$root.currentStep < this.index;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_selected-component.js":
+/*!**************************************************!*\
+  !*** ./src/js/components/_selected-component.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _selected_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_selected-item */ "./src/js/components/_selected-item.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  template: `
+
+  <div class="process__selected grid white-block">
+          <div class="process__selected-head">
+           You selected:
+          </div>
+          <div class="process__selected-body grid">
+            <selected-item v-for="item in selectedArr" :title="item.title" :imgPath="imgPath" :img="item.img"></selected-item>
+          </div>
+         </div>
+  `,
+  props: {
+    selectedArr: Array,
+    imgPath: String
+  },
+  components: {
+    'selected-item': _selected_item__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_selected-item.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/_selected-item.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  template: `
+          <div class="process__selected-item grid">
+            <div class="process__selected-img ibg">
+             <img loading="lazy" :src="imgPath + img" width="445" height="290" alt="Framed Silver Doorss">
+            </div>
+            <p class="process__selected-name">
+             {{title}}
+            </p>
+        </div>
+  `,
+  props: {
+    img: String,
+    title: String,
+    imgPath: String
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_selected.js":
+/*!****************************************!*\
+  !*** ./src/js/components/_selected.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const selected = [];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (selected);
+
+/***/ }),
+
+/***/ "./src/js/components/_step-btn.js":
+/*!****************************************!*\
+  !*** ./src/js/components/_step-btn.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  template: `
+  <button class="process__step-btn arrow-link white-arrow-link" :class="{ active: isActive, 'disabled': isDisabled }" :disabled=isDisabled>
+    Step {{index}}
+  </button>
+  `,
+  props: {
+    index: Number
+  },
+  computed: {
+    isActive() {
+      return this.index === this.$root.currentStep;
+    },
+    isDisabled() {
+      return this.index > this.$root.currentStep;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/_step.js":
+/*!************************************!*\
+  !*** ./src/js/components/_step.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _default_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_default-item */ "./src/js/components/_default-item.js");
+/* harmony import */ var _preview_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_preview-item */ "./src/js/components/_preview-item.js");
+/* harmony import */ var _final_item__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_final-item */ "./src/js/components/_final-item.js");
+/* harmony import */ var _selected_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_selected-component */ "./src/js/components/_selected-component.js");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    'default-item': _default_item__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'preview-item': _preview_item__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'final-item': _final_item__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'selected': _selected_component__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  template: `
+  <div class="process__step grid process__step-start" :data-show-selected=showSelected :data-step-final="itemsType === 'final' ? 'true' : null">
+    <p class="uppercase-bold section-title process__step-title">
+      Step {{index + 1}}. {{title}}
+    </p>
+
+      <div v-if="isNotFinal(itemsType)" class="process__items grid" :data-items-type=itemsType>
+
+      <template v-if="itemsType === 'preview'">
+        <preview-item
+        v-for="(item, itemIndex) in items"
+        :key="itemIndex"
+        :title="item.title"
+        :img="item.img"
+        :imgPath="imgPath"
+        :color="item.color"
+        :index="index"
+        >
+        </preview-item>
+      </template>
+
+      <template v-if="itemsType === 'default'">
+        <default-item
+        v-for="(item, itemIndex) in items"
+        :key="itemIndex"
+        :title="item.title"
+        :img="item.img"
+        :imgPath="imgPath"
+        >
+        </default-item>
+      </template>
+
+      </div>
+      <selected v-if="showSelected" :selectedArr="selected" :imgPath="imgPath"></selected>
+
+      <final-item v-if="itemsType === 'final'"></final-item>
+
+    </div>
+  `,
+  props: {
+    showSelected: Boolean,
+    itemsType: String,
+    index: Number,
+    items: Array,
+    title: String,
+    selected: Array,
+    imgPath: String
+  },
+  methods: {
+    isNotFinal(type) {
+      return type !== "final";
+    }
+  }
 });
 
 /***/ }),
@@ -463,6 +1090,61 @@ class Tab {
 
 /***/ }),
 
+/***/ "./src/js/sections/_constructor-quiz.js":
+/*!**********************************************!*\
+  !*** ./src/js/sections/_constructor-quiz.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_selected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/_selected */ "./src/js/components/_selected.js");
+/* harmony import */ var _components_frameless_steps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/_frameless-steps */ "./src/js/components/_frameless-steps.js");
+/* harmony import */ var _components_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/_custom-select */ "./src/js/components/_custom-select.js");
+/* harmony import */ var _components_selected_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/_selected-component */ "./src/js/components/_selected-component.js");
+/* harmony import */ var _components_step__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/_step */ "./src/js/components/_step.js");
+/* harmony import */ var _components_step_btn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/_step-btn */ "./src/js/components/_step-btn.js");
+
+
+
+
+
+
+const {
+  createApp
+} = Vue;
+const app = createApp({
+  data() {
+    return {
+      stepBtns: ['Step 1', 'Step 2', 'Step 3'],
+      currentStep: 1,
+      steps: _components_frameless_steps__WEBPACK_IMPORTED_MODULE_1__["default"],
+      selectedArr: _components_selected__WEBPACK_IMPORTED_MODULE_0__["default"],
+      imgPath: "img/content/"
+    };
+  },
+  methods: {
+    selectStep(index) {
+      if (this.currentStep > index) {
+        this.selectedArr.splice(index - 1);
+        for (let i = index; i < this.currentStep; i++) {
+          this.selectedArr.splice(i - 1);
+        }
+        this.currentStep = index;
+      }
+    }
+  },
+  components: {
+    'custom-select': _components_custom_select__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'selected': _components_selected_component__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'step': _components_step__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'step-btn': _components_step_btn__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }
+});
+app.mount("[data-constructor-type='wardrobe-inserts']");
+
+/***/ }),
+
 /***/ "./src/js/sections/_faq.js":
 /*!*********************************!*\
   !*** ./src/js/sections/_faq.js ***!
@@ -476,6 +1158,116 @@ __webpack_require__.r(__webpack_exports__);
 if (document.querySelector('.faq')) {
   new _functions_accordion__WEBPACK_IMPORTED_MODULE_0__["default"]('.faq').renderaccordionWithHead();
 }
+
+/***/ }),
+
+/***/ "./src/js/sections/_framed-quiz.js":
+/*!*****************************************!*\
+  !*** ./src/js/sections/_framed-quiz.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_selected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/_selected */ "./src/js/components/_selected.js");
+/* harmony import */ var _components_framed_steps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/_framed-steps */ "./src/js/components/_framed-steps.js");
+/* harmony import */ var _components_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/_custom-select */ "./src/js/components/_custom-select.js");
+/* harmony import */ var _components_selected_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/_selected-component */ "./src/js/components/_selected-component.js");
+/* harmony import */ var _components_step__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/_step */ "./src/js/components/_step.js");
+/* harmony import */ var _components_step_btn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/_step-btn */ "./src/js/components/_step-btn.js");
+
+
+
+
+
+
+const {
+  createApp
+} = Vue;
+const app = createApp({
+  data() {
+    return {
+      stepBtns: ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'],
+      currentStep: 1,
+      steps: _components_framed_steps__WEBPACK_IMPORTED_MODULE_1__["default"],
+      selectedArr: _components_selected__WEBPACK_IMPORTED_MODULE_0__["default"],
+      imgPath: "img/content/"
+    };
+  },
+  methods: {
+    selectStep(index) {
+      if (this.currentStep > index) {
+        this.selectedArr.splice(index - 1);
+        for (let i = index; i < this.currentStep; i++) {
+          this.selectedArr.splice(i - 1);
+        }
+        this.currentStep = index;
+      }
+    }
+  },
+  components: {
+    'custom-select': _components_custom_select__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'selected': _components_selected_component__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'step': _components_step__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'step-btn': _components_step_btn__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }
+});
+app.mount("[data-quiz-type='framed-sliding-doors']");
+
+/***/ }),
+
+/***/ "./src/js/sections/_frameless-quiz.js":
+/*!********************************************!*\
+  !*** ./src/js/sections/_frameless-quiz.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_selected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/_selected */ "./src/js/components/_selected.js");
+/* harmony import */ var _components_frameless_steps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/_frameless-steps */ "./src/js/components/_frameless-steps.js");
+/* harmony import */ var _components_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/_custom-select */ "./src/js/components/_custom-select.js");
+/* harmony import */ var _components_selected_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/_selected-component */ "./src/js/components/_selected-component.js");
+/* harmony import */ var _components_step__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/_step */ "./src/js/components/_step.js");
+/* harmony import */ var _components_step_btn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/_step-btn */ "./src/js/components/_step-btn.js");
+
+
+
+
+
+
+const {
+  createApp
+} = Vue;
+const app = createApp({
+  data() {
+    return {
+      stepBtns: ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'],
+      currentStep: 1,
+      steps: _components_frameless_steps__WEBPACK_IMPORTED_MODULE_1__["default"],
+      selectedArr: _components_selected__WEBPACK_IMPORTED_MODULE_0__["default"],
+      imgPath: "img/content/"
+    };
+  },
+  methods: {
+    selectStep(index) {
+      if (this.currentStep > index) {
+        this.selectedArr.splice(index - 1);
+        for (let i = index; i < this.currentStep; i++) {
+          this.selectedArr.splice(i - 1);
+        }
+        this.currentStep = index;
+      }
+    }
+  },
+  components: {
+    'custom-select': _components_custom_select__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'selected': _components_selected_component__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'step': _components_step__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'step-btn': _components_step_btn__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }
+});
+app.mount("[data-quiz-type='frameless-doors']");
 
 /***/ }),
 
@@ -13267,7 +14059,6 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_functions */ "./src/js/_functions.js");
 /* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_components */ "./src/js/_components.js");
-/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _sections__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_sections */ "./src/js/_sections.js");
 /* harmony import */ var _sliders__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_sliders */ "./src/js/_sliders.js");
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");

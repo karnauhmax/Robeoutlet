@@ -125,6 +125,11 @@ a {
   clip: rect(0 0 0 0);
 }
 
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .container {
   margin: 0 auto;
   max-width: var(--container-width);
