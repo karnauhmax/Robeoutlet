@@ -1242,7 +1242,7 @@ const {
 const app = createApp({
   data() {
     return {
-      stepBtns: ['Step 1', 'Step 2', 'Step 3', 'Step 4', 'Step 5'],
+      stepBtns: ['Step 1', 'Step 2', 'Step 3', 'Step 4'],
       currentStep: 1,
       steps: _components_frameless_steps__WEBPACK_IMPORTED_MODULE_1__["default"],
       selectedArr: _components_selected__WEBPACK_IMPORTED_MODULE_0__["default"],
