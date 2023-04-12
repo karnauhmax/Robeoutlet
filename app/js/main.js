@@ -478,7 +478,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data() {
     return {
-      totalPrice: 0,
+      addFloorBoard: false,
       inputs: [{
         title: "A",
         value: null,
@@ -512,19 +512,14 @@ __webpack_require__.r(__webpack_exports__);
       return arr.filter(item => item.type === metric).reduce((acc, item) => acc + item.value, 0);
     },
     renderPrice() {
+      if (this.inputs.some(item => !item.value)) {
+        return null;
+      }
       const width = this.calculateMetric("width", this.inputs);
       const height = this.calculateMetric("height", this.inputs);
-      let price;
-      this.inputs.forEach(input => {
-        if (input.value) {
-          const thickness = this.selected.find(item => item.track)?.track || "double";
-          console.log(thickness);
-          price = (0,_calculator__WEBPACK_IMPORTED_MODULE_0__["default"])(width, height, thickness, thickness, this.selectedTable);
-        } else {
-          price = 0;
-        }
-      });
-      return price;
+      const thickness = this.selected.find(item => item.track)?.track || "double";
+      const total = (0,_calculator__WEBPACK_IMPORTED_MODULE_0__["default"])(width, height, thickness, thickness, this.selectedTable);
+      return total;
     }
   },
   template: `
@@ -537,15 +532,15 @@ __webpack_require__.r(__webpack_exports__);
      provide your opening size in mm
     </p>
     <div class="process__finale-inputs grid">
-     <calculator-input v-for="input in inputs" :title="input.title" v-model:modelValue="input.value"></calculator-input>
+     <calculator-input v-for="(input, index) in inputs" :key="index" :title="input.title" v-model:modelValue="input.value"></calculator-input>
     </div>
     <div class="process__notice grid">
      <label class="checkbox-label text text-300 process__finale-checkbox grid">
-      <input type="radio" value="Free Pickup" name="Type of Delivery">
+      <input v-model="addFloorBoard" type="checkbox" value="Floor Board" name="Floor board checkbox">
       add floor board
       <span class="checkbox"></span>
      </label>
-     <p class="text text-300 process__notice-text">
+     <p v-if="addFloorBoard" class="text text-300 process__notice-text">
       16mm melamine board recommended to use on top of carpet or concrete floor. The bottom track applies on top of it.
               Please provide the actual opening sizes and we will take care of deductions!
      </p>

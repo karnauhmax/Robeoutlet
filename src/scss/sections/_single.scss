@@ -409,12 +409,6 @@
     align-self: center;
   }
 
-  &__notice-text {
-    display: none;
-    &.active {
-      display: block;
-    }
-  }
 
   &__unit {
     max-width: rem(230);

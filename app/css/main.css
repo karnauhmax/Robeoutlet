@@ -5892,12 +5892,6 @@ textarea {
   -ms-grid-row-align: center;
   align-self: center;
 }
-.process__notice-text {
-  display: none;
-}
-.process__notice-text.active {
-  display: block;
-}
 .process__unit {
   max-width: 14.375rem;
   display: -webkit-box;
