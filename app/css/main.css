@@ -5811,6 +5811,9 @@ textarea {
   padding-bottom: 67%;
   border-radius: 2px;
   overflow: hidden;
+  -ms-flex-item-align: start;
+  -ms-grid-row-align: start;
+  align-self: start;
 }
 .process__finale {
   -ms-grid-columns: (1fr)[2];

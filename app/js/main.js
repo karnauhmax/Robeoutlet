@@ -22,6 +22,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_framed_steps__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/_framed-steps */ "./src/js/components/_framed-steps.js");
 /* harmony import */ var _components_selected__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/_selected */ "./src/js/components/_selected.js");
 /* harmony import */ var _components_custom_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/_custom-select */ "./src/js/components/_custom-select.js");
+/* harmony import */ var _components_calculator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/_calculator */ "./src/js/components/_calculator.js");
+
 
 
 
@@ -253,6 +255,94 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/components/_calculator.js":
+/*!******************************************!*\
+  !*** ./src/js/components/_calculator.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const table = [[750, 810, 970], [860, 910, 1090], [930, 990, 1190], [1020, 1160, 1390], [1110, 1190, 1430], [1280, 1470, 1750], [1460, 1600, 1920], [1590, 1720, 2070], [1630, 1760, 2110], [2010, 2280, 2730], [2050, 2320, 2790], [2160, 2350, 2820], [2220, 2370, 2850], [2520, 2910, 3460]];
+function calculatePrice(width, height, doors, track, table) {
+  // determine the column of the table to use based on the height
+  let col;
+  if (height < 2100) {
+    return 'Invalid height';
+  } else if (height === 2100) {
+    col = 1;
+  } else if (height === 2400) {
+    col = 2;
+  } else if (height === 2700 && doors === 3) {
+    col = 3;
+  } else {
+    return 'Invalid height or number of doors';
+  }
+
+  // determine the row of the table to use based on the width and track type
+  let row;
+  if (track === 'double') {
+    if (width >= 1200 && width < 1500) {
+      row = 1;
+    } else if (width >= 1500 && width < 1800) {
+      row = 2;
+    } else if (width >= 1800 && width < 2100) {
+      row = 3;
+    } else if (width >= 2100 && width < 2400) {
+      row = 4;
+    } else if (width >= 2400 && width < 2700) {
+      row = 5;
+    } else if (width >= 2700 && width < 3000) {
+      row = 6;
+    } else if (width >= 3000 && width < 3300) {
+      row = 7;
+    } else if (width >= 3300 && width < 3600) {
+      row = 8;
+    } else if (width >= 3600 && width < 3900) {
+      row = 9;
+    } else if (width >= 3900 && width < 4200) {
+      row = 10;
+    } else if (width >= 4200 && width < 4500) {
+      row = 11;
+    } else if (width >= 4500 && width < 4800) {
+      row = 12;
+    } else if (width >= 4800 && width < 5100) {
+      row = 13;
+    } else if (width === 5100) {
+      row = 14;
+    } else {
+      return 'Invalid width';
+    }
+  } else if (track === 'triple') {
+    if (width >= 1800 && width < 3000) {
+      row = 1;
+    } else if (width >= 3000 && width < 4200) {
+      row = 2;
+    } else if (width >= 4200 && width < 5400) {
+      row = 3;
+    } else if (width >= 5400) {
+      row = 4;
+    } else {
+      return 'Invalid width';
+    }
+    col += 2; // add 2 to the column for triple track
+  } else {
+    return 'Invalid track type';
+  }
+
+  // retrieve the price from the table based on the row and column
+
+  const price = table[row - 1][col - 1];
+  return price;
+}
+console.log(calculatePrice(Number("2100"), Number("2100"), "double", "double", table));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calculatePrice);
+
+/***/ }),
+
 /***/ "./src/js/components/_custom-select.js":
 /*!*********************************************!*\
   !*** ./src/js/components/_custom-select.js ***!
@@ -327,9 +417,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  template: `
+/* harmony import */ var _selected__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_selected */ "./src/js/components/_selected.js");
 
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data() {
+    return {
+      selected: _selected__WEBPACK_IMPORTED_MODULE_0__["default"]
+    };
+  },
+  template: `
   <div tabindex="0" class="process__item grid" @click="nextStep">
          <div class="process__img ibg">
           <img loading="lazy" :src="imgPath + img" width="445" height="290" alt="Framed Silver Doorss">
@@ -342,13 +438,17 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     title: String,
     img: String,
-    imgPath: String
+    imgPath: String,
+    table: Array,
+    trackValue: String
   },
   methods: {
     nextStep() {
       this.$root.selectedArr.push({
         title: this.title,
-        img: this.img
+        img: this.img,
+        table: this.table,
+        track: this.trackValue
       });
       this.$root.currentStep++;
       console.log(this.$root.selectedArr);
@@ -369,10 +469,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _calculator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_calculator */ "./src/js/components/_calculator.js");
+/* harmony import */ var _selected__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_selected */ "./src/js/components/_selected.js");
+/* harmony import */ var _input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_input */ "./src/js/components/_input.js");
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data() {
+    return {
+      totalPrice: 0,
+      inputs: [{
+        title: "A",
+        value: null,
+        type: "width"
+      }, {
+        title: "B",
+        value: null,
+        type: "width"
+      }, {
+        title: "C",
+        value: null,
+        type: "height"
+      }, {
+        title: "D",
+        value: null,
+        type: "height"
+      }],
+      selected: _selected__WEBPACK_IMPORTED_MODULE_1__["default"]
+    };
+  },
+  components: {
+    'calculator-input': _input__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  computed: {
+    selectedTable() {
+      return this.selected.length > 0 ? this.selected[0].table : null;
+    }
+  },
+  methods: {
+    calculateMetric(metric, arr) {
+      return arr.filter(item => item.type === metric).reduce((acc, item) => acc + item.value, 0);
+    },
+    renderPrice() {
+      const width = this.calculateMetric("width", this.inputs);
+      const height = this.calculateMetric("height", this.inputs);
+      let price;
+      this.inputs.forEach(input => {
+        if (input.value) {
+          const thickness = this.selected.find(item => item.track)?.track || "double";
+          console.log(thickness);
+          price = (0,_calculator__WEBPACK_IMPORTED_MODULE_0__["default"])(width, height, thickness, thickness, this.selectedTable);
+        } else {
+          price = 0;
+        }
+      });
+      return price;
+    }
+  },
   template: `
   <form id="opening-size-form" class="process__finale grid">
-   <div class="process__finale-img ibg">
+   <div class="process__finale-img ibg" @click="renderPrice">
     <img loading="lazy" src="img/svg/opening-size.svg" class="image" width="505" height="340" alt="Opening Size Image">
    </div>
    <div class="process__finale-body grid">
@@ -380,22 +537,7 @@ __webpack_require__.r(__webpack_exports__);
      provide your opening size in mm
     </p>
     <div class="process__finale-inputs grid">
-     <label class="process__finale-label grid">
-      <span class="text text-500">A, мм</span>
-      <input type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
-     </label>
-     <label class="process__finale-label grid">
-      <span class="text text-500">B, мм</span>
-      <input type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
-     </label>
-     <label class="process__finale-label grid">
-      <span class="text text-500">C, мм</span>
-      <input type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
-     </label>
-     <label class="process__finale-label grid">
-      <span class="text text-500">D, мм</span>
-      <input type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
-     </label>
+     <calculator-input v-for="input in inputs" :title="input.title" v-model:modelValue="input.value"></calculator-input>
     </div>
     <div class="process__notice grid">
      <label class="checkbox-label text text-300 process__finale-checkbox grid">
@@ -410,7 +552,7 @@ __webpack_require__.r(__webpack_exports__);
     </div>
     <p class="process__finale-total uppercase-bold text">
      Total:
-     <span>$0 incl GST</span>
+     <span>{{renderPrice()}}$ Inc GST</span>
     </p>
    </div>
   </form>
@@ -548,10 +690,12 @@ const framelessSteps = [{
     img: "grey-mirror.jpg"
   }, {
     title: "Super White glass",
-    img: "super-white-glass.jpg"
+    img: "super-white-glass.jpg",
+    table: [[750, 810, 970], [860, 910, 1090], [930, 990, 1190], [1020, 1160, 1390], [1110, 1190, 1430], [1200, 1260, 1510], [1290, 1350, 1610], [1380, 1430, 1710]]
   }, {
     title: "Black glass",
-    img: "black-glass.jpg"
+    img: "black-glass.jpg",
+    table: [[730, 765, 918], [855, 890, 1065], [880, 915, 1095], [995, 1040, 1245], [1030, 1065, 1275], [1270, 1325, 1590], [1445, 1495, 1795], [1480, 1515, 1815], [1495, 1550, 1860], [1930, 2030, 2435], [2030, 2080, 2495], [2060, 2130, 2555], [2390, 2570, 2890]]
   }]
 }, {
   id: 2,
@@ -582,10 +726,12 @@ const framelessSteps = [{
   showSelected: true,
   items: [{
     title: "Double 82 mm",
-    img: "framed-silver-doors.jpg"
+    img: "framed-silver-doors.jpg",
+    trackValue: 'double'
   }, {
     title: "Triple 122 mm",
-    img: "framed-silver-doors.jpg"
+    img: "framed-silver-doors.jpg",
+    trackValue: 'triple'
   }]
 }, {
   id: 4,
@@ -594,6 +740,35 @@ const framelessSteps = [{
   showSelected: true
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (framelessSteps);
+
+/***/ }),
+
+/***/ "./src/js/components/_input.js":
+/*!*************************************!*\
+  !*** ./src/js/components/_input.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  template: `
+  <label class="process__finale-label grid">
+    <span class="text text-500">{{title}}, мм</span>
+    <input :value="modelValue" @input="$emit('update:modelValue', Number($event.target.value))" type="number" class="process__finale-input input-reset custom-input" placeholder="0 mm">
+  </label>
+  `,
+  props: {
+    modelValue: {
+      default: 0,
+      type: Number
+    },
+    title: String
+  }
+});
 
 /***/ }),
 
@@ -825,6 +1000,7 @@ __webpack_require__.r(__webpack_exports__);
         :title="item.title"
         :img="item.img"
         :imgPath="imgPath"
+        :table="item.table"
         :color="item.color"
         :index="index"
         >
@@ -836,6 +1012,8 @@ __webpack_require__.r(__webpack_exports__);
         v-for="(item, itemIndex) in items"
         :key="itemIndex"
         :title="item.title"
+        :table="item.table"
+        :trackValue="item.trackValue"
         :img="item.img"
         :imgPath="imgPath"
         >

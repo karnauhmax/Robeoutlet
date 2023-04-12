@@ -27,6 +27,7 @@ export default {
         :title="item.title"
         :img="item.img"
         :imgPath="imgPath"
+        :table="item.table"
         :color="item.color"
         :index="index"
         >
@@ -38,6 +39,8 @@ export default {
         v-for="(item, itemIndex) in items"
         :key="itemIndex"
         :title="item.title"
+        :table="item.table"
+        :trackValue="item.trackValue"
         :img="item.img"
         :imgPath="imgPath"
         >
